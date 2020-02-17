@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">MRD</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_tab">TabActivity</string>
+    <string name="tab_text_1">Cliente</string>
+    <string name="tab_text_2">Exterior</string>
+    <string name="tab_text_3">Interior</string>
+    <string name="tab_text_4">Motor</string>
+    <string name="titlulo_pickers">Obtener fecha y hora</string>
+    <string name="formato_fecha">dd/mm/yyyy</string>
+    <string name="formato_hora">hh:mm</string>
+    <string name="rb_text_asistencia">Asistecia</string>
+    <string name="rb_text_siniestro">Siniestro</string>
+    <string name="rb_text_alcoholimetro">Alcoholimetro</string>
+    <string name="rb_text_mal_estacionado">Mal Estacionado</string>
+    <string name="rb_text_detencion">Detencion</string>
+    <string name="rb_text_solo_inventario">Solo Iventario</string>
+    <string name="rb_text_solo_operativo_especial">Operativo Especial</string>
+    <string name="tv_text">Motivo De Inventario</string>
+    <string-array name="inventario_array">
+        <item>Alcoholimetro</item>
+        <item>Asistencia</item>
+        <item>Detencion</item>
+        <item>Mal Estacionado</item>
+        <item>Operativo Especial</item>
+        <item>Siniestro</item>
+        <item>Solo Inventario</item>
+    </string-array>
+
+    <string-array name="estado_array">
+        <item>Bien</item>
+        <item>Mal</item>
+        <item>No Trae</item>
+    </string-array>
+
+</resources>

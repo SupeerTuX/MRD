@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.MotorActivity">
+
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorMarkText"
+        android:text="MOTOR"
+        android:textAlignment="center"
+        android:textColor="@color/colorLightGray"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView44"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Radiador"
+        android:textSize="18sp"
+        android:background="#80D8FF"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerMotor1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+    <Spinner
+        android:id="@+id/spinnerMotor1"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+    <TextView
+        android:id="@+id/textView45"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:outlineAmbientShadowColor="#82B1FF"
+        android:text="Motoventilador"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerMotor2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView44" />
+
+    <Spinner
+        android:id="@+id/spinnerMotor2"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerMotor1" />
+
+    <TextView
+        android:id="@+id/textView46"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Alternador"
+        android:textSize="18sp"
+        android:background="#80D8FF"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerMotor3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView45" />
+
+    <Spinner
+        android:id="@+id/spinnerMotor3"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerMotor2" />
+
+    <TextView
+        android:id="@+id/textView47"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Cable De Bujias"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerMotor4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView46" />
+
+    <Spinner
+        android:id="@+id/spinnerMotor4"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerMotor3" />
+
+    <TextView
+        android:id="@+id/textView48"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Depurador"
+        android:textSize="18sp"
+        android:background="#80D8FF"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerMotor5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView47" />
+
+    <Spinner
+        android:id="@+id/spinnerMotor5"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerMotor4" />
+
+    <TextView
+        android:id="@+id/textView49"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Carburador"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerMotor6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView48" />
+
+    <Spinner
+        android:id="@+id/spinnerMotor6"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerMotor5" />
+
+    <TextView
+        android:id="@+id/textView50"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Filtro De Aceite"
+        android:textSize="18sp"
+        android:background="#80D8FF"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerMotor7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView49" />
+
+    <Spinner
+        android:id="@+id/spinnerMotor7"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerMotor6" />
+
+    <TextView
+        android:id="@+id/textView51"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Inyectores"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerMotor8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView50" />
+
+    <Spinner
+        android:id="@+id/spinnerMotor8"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerMotor7" />
+
+    <TextView
+        android:id="@+id/textView52"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Compresor"
+        android:textSize="18sp"
+        android:background="#80D8FF"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerMotor9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView51" />
+
+    <Spinner
+        android:id="@+id/spinnerMotor9"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerMotor8" />
+
+    <TextView
+        android:id="@+id/textView53"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Computadora"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerMotor10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView52" />
+
+    <Spinner
+        android:id="@+id/spinnerMotor10"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerMotor9" />
+
+    <TextView
+        android:id="@+id/textView54"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Bateria"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView53" />
+
+    <Spinner
+        android:id="@+id/spinnerMotor11"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerMotor10" />
+
+    <EditText
+        android:id="@+id/editTextMaracaBateria"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="Marca"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView54"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerMotor11"
+        app:layout_constraintStart_toEndOf="@+id/textView54" />
+
+    <SeekBar
+        android:id="@+id/seekBarGasolina"
+        style="@android:style/Widget.SeekBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="#80D8FF"
+        android:max="12"
+        android:progress="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView55"
+        app:layout_constraintTop_toBottomOf="@+id/textView56" />
+
+    <TextView
+        android:id="@+id/textView55"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="#80D8FF"
+        android:text="Tanque de Gasolina"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/seekBarGasolina"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextMaracaBateria" />
+
+    <TextView
+        android:id="@+id/textView56"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="#80D8FF"
+        android:text="    E          1/4         1/2         3/4            F"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView55"
+        app:layout_constraintTop_toBottomOf="@+id/editTextMaracaBateria" />
+
+    <TextView
+        android:id="@+id/textView57"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Carga:"
+        app:layout_constraintEnd_toStartOf="@+id/editTextCarga"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarGasolina" />
+
+    <EditText
+        android:id="@+id/editTextCarga"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Carga consiste en"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView57"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView57" />
+
+    <EditText
+        android:id="@+id/editTextObservaciones"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Observaciones"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView57" />
+
+    <Button
+        android:id="@+id/buttonMotorValidar"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorValidacion"
+        android:text="VALIDAR"
+        android:textColor="@color/colorLightGray"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

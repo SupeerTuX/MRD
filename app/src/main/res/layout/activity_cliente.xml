@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.ClienteActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="FOLIO"
+        android:textColor="@color/colorMarkText"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editTextFolio"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextFolio"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Direccion"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editTextDireccion"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextDireccion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Direccion de recuperacion de la unidad"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+
+    <ImageButton
+        android:id="@+id/imageButtonDate"
+        android:layout_width="41dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:src="@android:drawable/ic_menu_my_calendar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextFolio" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="116dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Fecha"
+        android:inputType="date"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonDate"
+        app:layout_constraintTop_toBottomOf="@+id/editTextFolio" />
+
+    <ImageButton
+        android:id="@+id/imageButtonTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:src="@android:drawable/presence_away"
+        app:layout_constraintStart_toEndOf="@+id/editTextDate"
+        app:layout_constraintTop_toBottomOf="@+id/editTextFolio" />
+
+    <EditText
+        android:id="@+id/editTextTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Hora"
+        android:inputType="time"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonTime"
+        app:layout_constraintTop_toBottomOf="@+id/editTextFolio" />
+
+    <TextView
+        android:id="@+id/textViewInventario"
+        android:layout_width="199dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorPrimary"
+        android:text="@string/tv_text"
+        android:textAlignment="center"
+        android:textColor="@color/colorLightGray"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDireccion" />
+
+    <Spinner
+        android:id="@+id/spinnerInventario"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewInventario"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDireccion" />
+
+    <EditText
+        android:id="@+id/editTextVehiculoMarca"
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Vehiculo Marca"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewInventario" />
+
+    <EditText
+        android:id="@+id/editTextVehiculoTipo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Tipo"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editTextVehiculoMarca"
+        app:layout_constraintEnd_toStartOf="@+id/editTextVehiculoModelo"
+        app:layout_constraintStart_toEndOf="@+id/editTextVehiculoMarca" />
+
+    <EditText
+        android:id="@+id/editTextVehiculoModelo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Modelo"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editTextVehiculoTipo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editTextVehiculoTipo" />
+
+    <EditText
+        android:id="@+id/editTextVehiculoColor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Color"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/editTextPlacas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextVehiculoMarca" />
+
+    <EditText
+        android:id="@+id/editTextPlacas"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="Placas"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editTextVehiculoColor"
+        app:layout_constraintEnd_toStartOf="@+id/editTextSerie"
+        app:layout_constraintStart_toEndOf="@+id/editTextVehiculoColor" />
+
+    <EditText
+        android:id="@+id/editTextSerie"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="No. Serie"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editTextPlacas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editTextPlacas" />
+
+    <EditText
+        android:id="@+id/editTextPropiertario"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Propiertaro/Conductor"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/switchLLaves"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextVehiculoColor" />
+
+    <Switch
+        android:id="@+id/switchLLaves"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Llaves"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editTextPropiertario"
+        app:layout_constraintEnd_toStartOf="@+id/editTextTelefono"
+        app:layout_constraintStart_toEndOf="@+id/editTextPropiertario" />
+
+    <EditText
+        android:id="@+id/editTextTelefono"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Telefono"
+        android:inputType="phone"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editTextPropiertario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/switchLLaves" />
+
+    <EditText
+        android:id="@+id/editTextGrua"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Grua"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/editTextClave"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPropiertario" />
+
+    <EditText
+        android:id="@+id/editTextClave"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Clave Operador"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editTextGrua"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editTextGrua" />
+
+    <EditText
+        android:id="@+id/editTextAutoridad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Autoridad O Empresa Solicitante"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextGrua" />
+
+    <Button
+        android:id="@+id/buttonValidar"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#00C853"
+        android:text="Validar"
+        android:textColor="@color/colorLightGray"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

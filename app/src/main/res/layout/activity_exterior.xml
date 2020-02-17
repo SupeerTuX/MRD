@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#CACACA"
+        tools:context=".Activities.ExteriorActivity">
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="Exterior"
+            android:textAlignment="center"
+            android:textColor="@color/colorLightGray"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#80D8FF"
+            android:text="Defensa Delantera"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerExt1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <Spinner
+            android:id="@+id/spinnerExt1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:spinnerMode="dialog"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Carroceria Sin Golpes"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerExt2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <Spinner
+            android:id="@+id/spinnerExt2"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerExt1" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#80D8FF"
+            android:text="Parrilla"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerExt3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <Spinner
+            android:id="@+id/spinnerExt3"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerExt2" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Faros"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerExt4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <Spinner
+            android:id="@+id/spinnerExt4"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerExt3" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#80D8FF"
+            android:text="Cofre"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerExt5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Parabrisas"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerExt6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <Spinner
+            android:id="@+id/spinnerExt5"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerExt4" />
+
+        <Spinner
+            android:id="@+id/spinnerExt6"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerExt5" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#80D8FF"
+            android:text="Limpiadores"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerExt7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <Spinner
+            android:id="@+id/spinnerExt7"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerExt6" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Emblemas"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerExt8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <Spinner
+            android:id="@+id/spinnerExt8"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerExt7" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#80D8FF"
+            android:text="Portezuela Izq"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerExt9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <Spinner
+            android:id="@+id/spinnerExt9"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerExt8" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Cristal Lat Izq"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerExt10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+        <Spinner
+            android:id="@+id/spinnerExt10"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerExt9" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#80D8FF"
+            android:text="Medallon"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerExt11"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Cajuela"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerExt12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+        <Spinner
+            android:id="@+id/spinnerExt11"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerExt10" />
+
+        <Spinner
+            android:id="@+id/spinnerExt12"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerExt11" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#80D8FF"
+            android:text="Defensa Trasera"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerExt13"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+        <Spinner
+            android:id="@+id/spinnerExt13"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerExt12" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Portezuela Der"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerExt14"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+        <Spinner
+            android:id="@+id/spinnerExt14"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerExt13" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#80D8FF"
+            android:text="Cristal Lat Der"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerExt15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+        <Spinner
+            android:id="@+id/spinnerExt15"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerExt14" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Antenas"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerExt16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+        <Spinner
+            android:id="@+id/spinnerExt16"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerExt15" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Tapones Ruedas"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerExt18"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView42" />
+
+
+        <Spinner
+            android:id="@+id/spinnerExt17"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerExt16" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#80D8FF"
+            android:text="Tapon De Gasolina"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerExt19"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+        <Spinner
+            android:id="@+id/spinnerExt18"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerExt17" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Salpicadera Der."
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerExt20"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+        <Spinner
+            android:id="@+id/spinnerExt19"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerExt18" />
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#80D8FF"
+            android:text="Salpicadera Izq."
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerExt21"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+        <Spinner
+            android:id="@+id/spinnerExt20"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerExt19" />
+
+        <TextView
+            android:id="@+id/textView42"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#80D8FF"
+            android:text="Espejos"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerExt17"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+        <Spinner
+            android:id="@+id/spinnerExt21"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerExt20" />
+
+        <Button
+            android:id="@+id/buttonExteriorValidar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@color/colorValidacion"
+            android:text="VALIDAR"
+            android:textColor="@color/colorLightGray"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerExt21" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

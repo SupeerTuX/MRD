@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Activities.InteriorActivity">
+
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:text="INTERIOR"
+            android:textAlignment="center"
+            android:textColor="@color/colorLightGray"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Tablero"
+            android:background="#80D8FF"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerInt1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+        <Spinner
+            android:id="@+id/spinnerInt1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Volante"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerInt2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+        <Spinner
+            android:id="@+id/spinnerInt2"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerInt1" />
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Radio"
+            android:background="#80D8FF"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerInt3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+        <Spinner
+            android:id="@+id/spinnerInt3"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerInt2" />
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Equipo De Sonido"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerInt4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+        <Spinner
+            android:id="@+id/spinnerInt4"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerInt3" />
+
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Encendedor"
+            android:textSize="18sp"
+            android:background="#80D8FF"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerInt5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+        <Spinner
+            android:id="@+id/spinnerInt5"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerInt4" />
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Espejo"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerInt6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView29" />
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Asientos"
+            android:textSize="18sp"
+            android:background="#80D8FF"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerInt7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+        <Spinner
+            android:id="@+id/spinnerInt6"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerInt5" />
+
+        <Spinner
+            android:id="@+id/spinnerInt7"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerInt6" />
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Tapetes De Alfombra"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerInt8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView31" />
+
+        <Spinner
+            android:id="@+id/spinnerInt8"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerInt7" />
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Tapetes De Hule"
+            android:textSize="18sp"
+            android:background="#80D8FF"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerInt9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView32" />
+
+        <Spinner
+            android:id="@+id/spinnerInt9"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerInt8" />
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Extintor"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerInt10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView33" />
+
+        <TextView
+            android:id="@+id/textView35"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Gato Y Maneral"
+            android:textSize="18sp"
+            android:background="#80D8FF"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerInt11"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView34" />
+
+        <Spinner
+            android:id="@+id/spinnerInt10"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerInt9" />
+
+        <Spinner
+            android:id="@+id/spinnerInt11"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerInt10" />
+
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Triangulo De Seguridad"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerInt12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView35" />
+
+        <Spinner
+            android:id="@+id/spinnerInt12"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerInt11" />
+
+        <TextView
+            android:id="@+id/textView37"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Bocinas"
+            android:textSize="18sp"
+            android:background="#80D8FF"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerInt13"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView36" />
+
+        <Spinner
+            android:id="@+id/spinnerInt13"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerInt12" />
+
+        <TextView
+            android:id="@+id/textView38"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Luces"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerInt14"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView37" />
+
+        <Spinner
+            android:id="@+id/spinnerInt14"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerInt13" />
+
+        <TextView
+            android:id="@+id/textView39"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Tag"
+            android:textSize="18sp"
+            android:background="#80D8FF"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerInt15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+        <Spinner
+            android:id="@+id/spinnerInt15"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerInt14" />
+
+        <TextView
+            android:id="@+id/textView40"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Vial Pass"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerInt16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView39" />
+
+        <Spinner
+            android:id="@+id/spinnerInt16"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerInt15" />
+
+        <TextView
+            android:id="@+id/textView41"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Sim Card"
+            android:textSize="18sp"
+            android:background="#80D8FF"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerInt17"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView40" />
+
+        <Spinner
+            android:id="@+id/spinnerInt17"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerInt16" />
+
+        <TextView
+            android:id="@+id/textView58"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorAccent"
+            android:text="LLANTAS"
+            android:textAlignment="center"
+            android:textColor="@color/colorLightGray"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView41" />
+
+        <EditText
+            android:id="@+id/editTextLlantasMarca"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:hint="Marca Llantas"
+            android:inputType="textPersonName"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/editTextLlantasCantidad"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView58" />
+
+        <EditText
+            android:id="@+id/editTextLlantasCantidad"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:hint="Medida"
+            android:inputType="textPersonName"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/editTextLlantasMedida"
+            app:layout_constraintStart_toEndOf="@+id/editTextLlantasMarca"
+            app:layout_constraintTop_toBottomOf="@+id/textView58" />
+
+        <EditText
+            android:id="@+id/editTextLlantasMedida"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:hint="Cantidad"
+            android:inputType="numberDecimal"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/editTextLlantasCantidad"
+            app:layout_constraintTop_toBottomOf="@+id/textView58" />
+
+        <Button
+            android:id="@+id/buttonInteriorValidar"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorValidacion"
+            android:text="VALIDAR"
+            android:textColor="@color/colorLightGray"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextLlantasMarca" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
