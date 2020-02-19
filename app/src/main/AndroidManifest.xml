@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mrd">
 
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.MotorActivity"></activity>
+        <activity android:name=".Activities.ListaBTActivity"></activity>
+        <activity android:name=".Activities.MotorActivity" />
         <activity android:name=".Activities.InteriorActivity" />
         <activity android:name=".Activities.ExteriorActivity" />
         <activity android:name=".Activities.ClienteActivity" />

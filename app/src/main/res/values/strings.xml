@@ -34,4 +34,10 @@
         <item>No Trae</item>
     </string-array>
 
+    <string-array name="mac_array">
+        <item>00:11:22:33:44:55:66</item>
+        <item>11:22:33:44:55:66:77</item>
+        <item>22:33:44:55:66:77:88</item>
+    </string-array>
+
 </resources>
