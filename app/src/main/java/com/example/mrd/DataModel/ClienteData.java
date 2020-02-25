@@ -17,6 +17,7 @@ public class ClienteData implements Serializable {
     private String vehiculoSerie;
     private String vehiculoPropietario;
     private boolean vehiculoLlaves;
+    private String VehiculoLlaves;
     private String telefono;
     private String operadorGrua;
     private String operadorClave;
@@ -128,6 +129,12 @@ public class ClienteData implements Serializable {
 
     public void setVehiculoLlaves(boolean vehiculoLlaves) {
         this.vehiculoLlaves = vehiculoLlaves;
+    }
+
+    public String getVehiculoLlaves() {
+        if(vehiculoLlaves)
+        return "SI";
+        else return "NO";
     }
 
     public String getTelefono() {

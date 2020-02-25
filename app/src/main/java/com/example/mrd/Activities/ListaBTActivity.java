@@ -42,6 +42,7 @@ public class ListaBTActivity extends AppCompatActivity {
                     int i =0;
                     s1 = new String[dispositivosSync.size()];
                     s2 = new String[dispositivosSync.size()];
+                    s2 = getResources().getStringArray(R.array.mac_array);
                     // Llenamos el array de dispositivos para pasarlo al adapter
                     for(BluetoothDevice dispositivo : dispositivosSync){
                         //dispositivos.add(new ItemDispositivo(dispositivo.getName(),  dispositivo.getAddress()));

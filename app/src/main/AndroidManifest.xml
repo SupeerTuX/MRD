@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.ListaBTActivity"></activity>
+        <activity android:name=".Activities.TicketActivity"></activity>
+        <activity android:name=".Activities.ListaBTActivity" />
         <activity android:name=".Activities.MotorActivity" />
         <activity android:name=".Activities.InteriorActivity" />
         <activity android:name=".Activities.ExteriorActivity" />

@@ -21,13 +21,16 @@ import android.widget.Toast;
 import com.example.mrd.DataModel.ClienteData;
 import com.example.mrd.DataModel.ExteriorData;
 import com.example.mrd.DataModel.InteriorData;
+import com.example.mrd.DataModel.FormularioModel;
 import com.example.mrd.DataModel.MotorData;
 import com.example.mrd.R;
+import com.example.mrd.Utilidades.StringUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class CapturaActivity extends AppCompatActivity {
@@ -37,12 +40,16 @@ public class CapturaActivity extends AppCompatActivity {
     static final int CODE_INTERIOR = 3;
     static final int CODE_MOTOR = 4;
     private static final int REQUEST_DISPOSITIVO = 425;
+    private static final int FORMAT_TICKET = 5;
     private static final String TAG_DEBUG = "tag_debug";
+    private static final int LIMITE_CARACTERES_POR_LINEA = 47;
 
     ClienteData clienteData = null;
-    ExteriorData exteriorData =null;
-    InteriorData interiorData =null;
+    ExteriorData exteriorData = null;
+    InteriorData interiorData = null;
     MotorData motorData = null;
+
+    ArrayList<String> ticketText;
 
     private volatile boolean pararLectura;
 
@@ -58,10 +65,10 @@ public class CapturaActivity extends AppCompatActivity {
     private ImageView imgInteriorOK;
     private ImageView imgMotorOK;
 
-    private ImageButton  ibClienteEdit;
-    private ImageButton  ibExteriorEdit;
-    private ImageButton  ibInteriorEdit;
-    private ImageButton  ibMotorEdit;
+    private ImageButton ibClienteEdit;
+    private ImageButton ibExteriorEdit;
+    private ImageButton ibInteriorEdit;
+    private ImageButton ibMotorEdit;
 
     // Para la operaciones con dispositivos bluetooth
     private BluetoothAdapter bluetoothAdapter;
@@ -78,28 +85,25 @@ public class CapturaActivity extends AppCompatActivity {
     private InputStream inputStream;
 
 
-
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        if (requestCode == CODE_CLIENTE) {
+            if (data != null) {
+                Bundle objRecivido = data.getExtras();
+                clienteData = (ClienteData) objRecivido.getSerializable("cliente");
+                imgClienteOK.setVisibility(View.VISIBLE);
+                ibClienteEdit.setVisibility(View.VISIBLE);
+                //btnCliente.setVisibility(View.INVISIBLE);
+                btnCliente.setEnabled(false);
 
-        if(requestCode == CODE_CLIENTE){
-                if(data != null){
-                    Bundle objRecivido = data.getExtras();
-                    clienteData = (ClienteData) objRecivido.getSerializable("cliente");
-                    imgClienteOK.setVisibility(View.VISIBLE);
-                    ibClienteEdit.setVisibility(View.VISIBLE);
-                    //btnCliente.setVisibility(View.INVISIBLE);
-                    btnCliente.setEnabled(false);
-
-                    //Toast.makeText(CapturaActivity.this, "Validacion OK", Toast.LENGTH_SHORT).show();
-                }
+                //Toast.makeText(CapturaActivity.this, "Validacion OK", Toast.LENGTH_SHORT).show();
+            }
         }
 
-        if(requestCode == CODE_EXTERIOR){
-            if(data != null){
+        if (requestCode == CODE_EXTERIOR) {
+            if (data != null) {
                 Bundle objRecivido = data.getExtras();
                 exteriorData = (ExteriorData) objRecivido.getSerializable("exterior");
                 imgExteriorOK.setVisibility(View.VISIBLE);
@@ -108,8 +112,8 @@ public class CapturaActivity extends AppCompatActivity {
             }
         }
 
-        if(requestCode == CODE_INTERIOR){
-            if(data != null){
+        if (requestCode == CODE_INTERIOR) {
+            if (data != null) {
                 Bundle objRecivido = data.getExtras();
                 interiorData = (InteriorData) objRecivido.getSerializable("interior");
                 imgInteriorOK.setVisibility(View.VISIBLE);
@@ -118,8 +122,8 @@ public class CapturaActivity extends AppCompatActivity {
             }
         }
 
-        if(requestCode == CODE_MOTOR){
-            if(data != null){
+        if (requestCode == CODE_MOTOR) {
+            if (data != null) {
                 Bundle objRecivido = data.getExtras();
                 motorData = (MotorData) objRecivido.getSerializable("motor");
                 imgMotorOK.setVisibility(View.VISIBLE);
@@ -129,11 +133,11 @@ public class CapturaActivity extends AppCompatActivity {
             }
         }
 
-        if(requestCode == REQUEST_DISPOSITIVO)
-            if(data != null){
+        if (requestCode == REQUEST_DISPOSITIVO) {
+            if (data != null) {
                 final String direccionDispositivo = data.getExtras().getString("DireccionDispositivo");
                 final String nombreDispositivo = data.getExtras().getString("NombreDispositivo");
-                Toast.makeText(this, "Conectando BT: " + nombreDispositivo + " MAC: "+direccionDispositivo , Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Conectando BT: " + nombreDispositivo + " MAC: " + direccionDispositivo, Toast.LENGTH_LONG).show();
 
                 // Obtenemos el dispositivo con la direccion seleccionada en la lista
                 dispositivoBluetooth = bluetoothAdapter.getRemoteDevice(direccionDispositivo);
@@ -175,6 +179,23 @@ public class CapturaActivity extends AppCompatActivity {
                 }).start();
 
             }
+
+        }
+
+        if (requestCode == FORMAT_TICKET){
+            Bundle extras = data.getExtras();
+            if(extras != null){
+                ticketText = extras.getStringArrayList("ticketFormat");
+                //Inicializacion de la impresora
+                printTextInit();
+
+                for (int i = 0; i< ticketText.size(); i++){
+                    printText(StringUtils.center(ticketText.get(i), LIMITE_CARACTERES_POR_LINEA), 0,0,0,0);
+
+                }
+            }
+
+        }
     }
 
     @Override
@@ -195,7 +216,7 @@ public class CapturaActivity extends AppCompatActivity {
         btnSH = findViewById(R.id.buttonSH);
 
         imgClienteOK = findViewById(R.id.imageViewClienteOK);
-        imgExteriorOK= findViewById(R.id.imageViewExteriorOK);
+        imgExteriorOK = findViewById(R.id.imageViewExteriorOK);
         imgInteriorOK = findViewById(R.id.imageViewInteriorOK);
         imgMotorOK = findViewById(R.id.imageViewMotorOK);
 
@@ -285,39 +306,39 @@ public class CapturaActivity extends AppCompatActivity {
             }
         });
 
+        //Evento
         btnTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (bluetoothSocket != null) {
-                    try {
-                        String texto = "TuXDevelop"+ "\n";
+
+                    Intent intent =  new Intent(CapturaActivity.this, TicketActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("ticket", clienteData);
+                    bundle.putSerializable("exterior", exteriorData);
+                    bundle.putSerializable("interior", interiorData);
+                    bundle.putSerializable("motor", motorData);
+                    intent.putExtras(bundle);
+                    startActivityForResult(intent, FORMAT_TICKET);
+
                         /*
                         int fuente = Integer.parseInt(spnFuente.getSelectedItem().toString());
                         int negrita = spnNegrita.getSelectedItem().toString().equals("Si") ? 1 : 0;
                         int ancho = Integer.parseInt(spnAncho.getSelectedItem().toString());
-                        int alto = Integer.parseInt(spnAlto.getSelectedItem().toString());*/
+                        int alto = Integer.parseInt(spnAlto.getSelectedItem().toString());
                         int fuente = 0;
                         int negrita = 0;
                         int ancho = 0;
                         int alto = 0;
+                         */
 
-                        // Para que acepte caracteres espciales
-                        outputStream.write(0x1C); outputStream.write(0x2E); // Cancelamos el modo de caracteres chino (FS .)
-                        outputStream.write(0x1B); outputStream.write(0x74); outputStream.write(0x10); // Seleccionamos los caracteres escape (ESC t n) - n = 16(0x10) para WPC1252
+                    //printText(buffer[1] + " " + buffer[2] + " "+ buffer[3], 0, 0, 0, 0);
+                    //printText(buffer[2], 0, 0, 0, 0);
+                    //printText(buffer[3], 0, 0, 0, 0);
+                    //printText(buffer[4], 0, 0, 0, 0);
 
-                        outputStream.write( getByteString(texto, negrita, fuente, ancho, alto) );
-
-                        outputStream.write("\n\n".getBytes());
-
-                    } catch (IOException e) {
-                        Log.e(TAG_DEBUG, "Error al escribir en el socket");
-                        Toast.makeText(CapturaActivity.this, "Error al interntar imprimir texto", Toast.LENGTH_SHORT).show();
-
-                        e.printStackTrace();
-                    }
                 } else {
                     Log.e(TAG_DEBUG, "Socket nulo");
-
                     tvBT.setText("Impresora no conectada");
                 }
             }
@@ -339,8 +360,6 @@ public class CapturaActivity extends AppCompatActivity {
 
     }
 
-
-
     private void editModule(final int CODE) {
         new AlertDialog.Builder(CapturaActivity.this)
                 .setIcon(R.drawable.edit_icon)
@@ -352,11 +371,19 @@ public class CapturaActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         //android.os.Process.killProcess(android.os.Process.myPid()); //Su funcion es algo similar a lo que se llama cuando se presiona el botón "Forzar Detención" o "Administrar aplicaciones", lo cuál mata la aplicación
                         //finish(); Si solo quiere mandar la aplicación a segundo plano
-                        switch (CODE){
-                            case CODE_CLIENTE: btnCliente.setEnabled(true); break;
-                            case CODE_EXTERIOR: btnExterior.setEnabled(true); break;
-                            case CODE_INTERIOR: btnInterior.setEnabled(true); break;
-                            case CODE_MOTOR: btnMotor.setEnabled(true); break;
+                        switch (CODE) {
+                            case CODE_CLIENTE:
+                                btnCliente.setEnabled(true);
+                                break;
+                            case CODE_EXTERIOR:
+                                btnExterior.setEnabled(true);
+                                break;
+                            case CODE_INTERIOR:
+                                btnInterior.setEnabled(true);
+                                break;
+                            case CODE_MOTOR:
+                                btnMotor.setEnabled(true);
+                                break;
                         }
                     }
                 }).show();
@@ -409,5 +436,34 @@ public class CapturaActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         cerrarConexion();
+    }
+
+    public void  printTextInit() {
+        try {
+            // Para que acepte caracteres espciales
+            outputStream.write(0x1C);
+            outputStream.write(0x2E); // Cancelamos el modo de caracteres chino (FS .)
+            outputStream.write(0x1B);
+            outputStream.write(0x74);
+            outputStream.write(0x10); // Seleccionamos los caracteres escape (ESC t n) - n = 16(0x10) para WPC1252
+        } catch (IOException e) {
+            Log.e(TAG_DEBUG, "Error al escribir en el socket");
+            Toast.makeText(CapturaActivity.this, "Error al iniciar la impresion", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+
+    }
+
+    public void printText(String texto, int negrita, int fuente, int ancho, int alto) {
+        try {
+            outputStream.write(getByteString(texto, negrita, fuente, ancho, alto));
+            outputStream.write("\n".getBytes());
+        } catch (IOException e) {
+            Log.e(TAG_DEBUG, "Error al escribir en el socket");
+            Toast.makeText(CapturaActivity.this, "Error al interntar imprimir texto", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+
+
     }
 }
