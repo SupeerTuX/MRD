@@ -438,11 +438,6 @@ public class TicketActivity extends AppCompatActivity {
         rows.add(genericRow);
 
 
-
-
-
-
-
         //Set Folio
         rows.get(3).append(formularioData.getFolio());
         //Fecha y hora
@@ -468,8 +463,8 @@ public class TicketActivity extends AppCompatActivity {
         //Motivo Inventario L2
         rows.get(9).setText(getResources().getString(R.string.ticket_motivo_alcoholimetro));
         if(getResources().getString(R.string.ticket_motivo_alcoholimetro).equals(formularioData.getMotivoInventario()))
-            rows.get(8).append(getResources().getString(R.string.ticket_selected));
-        else rows.get(8).append(getResources().getString(R.string.ticket_unselected));
+            rows.get(9).append(getResources().getString(R.string.ticket_selected));
+        else rows.get(9).append(getResources().getString(R.string.ticket_unselected));
 
         rows.get(9).append("    ");
 
@@ -706,6 +701,12 @@ public class TicketActivity extends AppCompatActivity {
             }
             strIndex++;
         }
+
+        //Marca bateria
+        rows.get(80).append(motorData.getMarcaBateria());
+
+
+
     }
 
     private void ticketFooter(){
@@ -721,6 +722,20 @@ public class TicketActivity extends AppCompatActivity {
         //tanque de gasolina
         // |--|--|--|--|
         rows.get(87).setText("E |--|--|--|--| F");
+        int tanque =  Integer.parseInt(motorData.getMedidorGasolina());
+
+
+        for (int i = 0; i < 13; i++){
+            if(i == 0)
+                rows.get(88).setText("|");
+
+            if (tanque < i){
+                rows.get(88).append("#");
+            }else{
+                rows.get(88).append("-");
+            }
+
+        }
 
         //carga
 
@@ -734,6 +749,9 @@ public class TicketActivity extends AppCompatActivity {
             rows.get(94).append(str1);
             rows.get(95).setText(str2);
         }
+        else{
+            rows.get(94).append(motorData.getMotorCarga());
+        }
         //TODO establecer else para guardar el texto en caso de que no supere el limite de la linea
 
         //observaciones
@@ -745,6 +763,9 @@ public class TicketActivity extends AppCompatActivity {
             String str2 = motorData.getMotorObservaciones().substring(++espacio, strLen);
             rows.get(96).append(str1);
             rows.get(97).setText(str2);
+        }
+        else{
+            rows.get(96).append(motorData.getMotorObservaciones());
         }
 
     }
@@ -765,7 +786,6 @@ public class TicketActivity extends AppCompatActivity {
         }
 
     }
-
 
 }
 

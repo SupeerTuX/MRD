@@ -30,13 +30,13 @@
     <string name="ticket_motivo_asistencia">Asistencia</string>
     <string name="ticket_motivo_siniestro">Siniestro</string>
     <string name="ticket_motivo_alcoholimetro">Alcoholimetro</string>
-    <string name="ticket_motivo_mal_estacionado">Mal estacionado</string>
+    <string name="ticket_motivo_mal_estacionado">Mal Estacionado</string>
     <string name="ticket_motivo_detencion">Detencion</string>
-    <string name="ticket_motivo_solo_inventario">Solo inventario</string>
-    <string name="ticket_motivo_operativo_especial">Operativo especial</string>
+    <string name="ticket_motivo_solo_inventario">Solo Inventario</string>
+    <string name="ticket_motivo_operativo_especial">Operativo Especial</string>
     <string name="ticket_selected">(x)</string>
     <string name="ticket_unselected">( )</string>
-    <string name="ticket_vehiculo_marca">Vehiculo marca: </string>
+    <string name="ticket_vehiculo_marca">Vehiculo Marca: </string>
     <string name="ticket_vehiculo_tipo">Tipo: </string>
     <string name="ticket_vehiculo_modelo">Modelo: </string>
     <string name="ticket_vehiculo_color">Color: </string>
@@ -94,9 +94,9 @@
     <string name="ticket_int_vial">Vial pass</string>
     <string name="ticket_int_sim">Sim card</string>
     <string name="ticket_int_llantas">Llantas</string>
-    <string name="ticket_int_llantas_marca">Marca</string>
-    <string name="ticket_int_llantas_medida">Medida</string>
-    <string name="ticket_int_llantas_cantidad">Cantidad</string>
+    <string name="ticket_int_llantas_marca">Marca: </string>
+    <string name="ticket_int_llantas_medida">Medida: </string>
+    <string name="ticket_int_llantas_cantidad">Cantidad: </string>
 
 
     <string name="ticket_motor_radiador">Radiador</string>
@@ -110,7 +110,7 @@
     <string name="ticket_motor_compresor">Compresor</string>
     <string name="ticket_motor_computadora">Computadora</string>
     <string name="ticket_motor_bateria">Bateria</string>
-    <string name="ticket_motor_bateria_marca">Marca</string>
+    <string name="ticket_motor_bateria_marca">Marca :</string>
     <string name="ticket_motor_gasolina">Tanque de gasolina</string>
 
 

@@ -9,6 +9,8 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +26,7 @@ import com.example.mrd.DataModel.InteriorData;
 import com.example.mrd.DataModel.FormularioModel;
 import com.example.mrd.DataModel.MotorData;
 import com.example.mrd.R;
+import com.example.mrd.Utilidades.PrintBitmap;
 import com.example.mrd.Utilidades.StringUtils;
 
 import java.io.IOException;
@@ -43,6 +46,9 @@ public class CapturaActivity extends AppCompatActivity {
     private static final int FORMAT_TICKET = 5;
     private static final String TAG_DEBUG = "tag_debug";
     private static final int LIMITE_CARACTERES_POR_LINEA = 47;
+    private final int ANCHO_IMG_58_MM = 450;
+    private static final int MODE_PRINT_IMG = 0;
+    private static final int SEPARADOR_TICKET = 3;
 
     ClienteData clienteData = null;
     ExteriorData exteriorData = null;
@@ -186,15 +192,20 @@ public class CapturaActivity extends AppCompatActivity {
             Bundle extras = data.getExtras();
             if(extras != null){
                 ticketText = extras.getStringArrayList("ticketFormat");
+
+                Bitmap bitmap= BitmapFactory.decodeResource(getResources(), R.drawable.logo);
+                printLogo(bitmap);
                 //Inicializacion de la impresora
                 printTextInit();
-
+                //Imprimir ticket
                 for (int i = 0; i< ticketText.size(); i++){
                     printText(StringUtils.center(ticketText.get(i), LIMITE_CARACTERES_POR_LINEA), 0,0,0,0);
-
+                }
+                //separador de ticket
+                for (int i = 0; i< SEPARADOR_TICKET; i++){
+                    printText(" ", 0,0,0,0);
                 }
             }
-
         }
     }
 
@@ -465,5 +476,15 @@ public class CapturaActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    public void printLogo(Bitmap bitmap){
+        try {
+            outputStream.write(PrintBitmap.POS_PrintBMP(bitmap, ANCHO_IMG_58_MM, MODE_PRINT_IMG));
+            outputStream.write("\n\n".getBytes());
+        }catch (IOException e){
+            Toast.makeText(CapturaActivity.this, "Error al intentar imprimir imagen", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
     }
 }
