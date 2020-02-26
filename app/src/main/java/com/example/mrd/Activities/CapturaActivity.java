@@ -65,6 +65,7 @@ public class CapturaActivity extends AppCompatActivity {
     private Button btnMotor;
     private Button btnSH;
     private Button btnTest;
+    private Button btnReporteFotografico;
 
     private ImageView imgClienteOK;
     private ImageView imgExteriorOK;
@@ -222,6 +223,7 @@ public class CapturaActivity extends AppCompatActivity {
         btnMotor = findViewById(R.id.buttonMotor);
         imgClienteOK = findViewById(R.id.imageViewClienteOK);
         ibClienteEdit = findViewById(R.id.imageButtonClienteEdit);
+        btnReporteFotografico = findViewById(R.id.buttonReporteF);
 
         btnTest = findViewById(R.id.buttonTest);
         btnSH = findViewById(R.id.buttonSH);
@@ -352,6 +354,16 @@ public class CapturaActivity extends AppCompatActivity {
                     Log.e(TAG_DEBUG, "Socket nulo");
                     tvBT.setText("Impresora no conectada");
                 }
+            }
+        });
+
+        btnReporteFotografico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CapturaActivity.this, ReporteActivity.class);
+                startActivity(intent);
+
+
             }
         });
     }

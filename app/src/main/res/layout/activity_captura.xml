@@ -183,11 +183,11 @@
         android:id="@+id/buttonSH"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:text="Sincronizar Impresora"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonMotor" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonReporteF" />
 
     <TextView
         android:id="@+id/textViewBT"
@@ -208,5 +208,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewBT" />
+
+    <Button
+        android:id="@+id/buttonReporteF"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="16dp"
+        android:text="Reporte Fotografico"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMotor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

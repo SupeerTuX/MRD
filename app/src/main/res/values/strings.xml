@@ -114,7 +114,6 @@
     <string name="ticket_motor_gasolina">Tanque de gasolina</string>
 
 
-
     <string name="ticket_motor_footer1">ATENCION: Porfavor recoja sus objetos</string>
     <string name="ticket_motor_footer2">personales que se encuentren en el vehiculo</string>
     <string name="ticket_motor_footer3">ya que la empresa no se hace responsable</string>
@@ -141,6 +140,13 @@
     <string name="ticket_bien">Bien</string>
     <string name="ticket_mal">Mal</string>
     <string name="ticket_no_trae">No Trae</string>
+
+    <string name="foto_frontal">Foto Frontal</string>
+    <string name="foto_trasera">Foto Trasera</string>
+    <string name="foto_lado1">Foto De Lado</string>
+    <string name="foto_lado2">Foto De Lado</string>
+    <string name="boton_guardar">Guardar Reporte</string>
+
 
 
     <string-array name="inventario_array">
