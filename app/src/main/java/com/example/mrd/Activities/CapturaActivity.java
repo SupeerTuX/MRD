@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
@@ -42,6 +43,7 @@ public class CapturaActivity extends AppCompatActivity {
     static final int CODE_EXTERIOR = 2;
     static final int CODE_INTERIOR = 3;
     static final int CODE_MOTOR = 4;
+    static final int CODE_REPORTE = 6;
     private static final int REQUEST_DISPOSITIVO = 425;
     private static final int FORMAT_TICKET = 5;
     private static final String TAG_DEBUG = "tag_debug";
@@ -55,7 +57,9 @@ public class CapturaActivity extends AppCompatActivity {
     InteriorData interiorData = null;
     MotorData motorData = null;
 
+    int[] ResultadoFormulario;
     ArrayList<String> ticketText;
+    ArrayList<String> rutasImg;
 
     private volatile boolean pararLectura;
 
@@ -63,19 +67,22 @@ public class CapturaActivity extends AppCompatActivity {
     private Button btnExterior;
     private Button btnInterior;
     private Button btnMotor;
-    private Button btnSH;
-    private Button btnTest;
     private Button btnReporteFotografico;
 
     private ImageView imgClienteOK;
     private ImageView imgExteriorOK;
     private ImageView imgInteriorOK;
     private ImageView imgMotorOK;
+    private ImageView imgReporteOK;
 
     private ImageButton ibClienteEdit;
     private ImageButton ibExteriorEdit;
     private ImageButton ibInteriorEdit;
     private ImageButton ibMotorEdit;
+    private ImageButton ibtnReporteEdit;
+    private ImageButton ibtnSincronizar;
+    private ImageButton ibtnPrint;
+    private ImageButton ibtnUpload;
 
     // Para la operaciones con dispositivos bluetooth
     private BluetoothAdapter bluetoothAdapter;
@@ -83,6 +90,9 @@ public class CapturaActivity extends AppCompatActivity {
     private BluetoothSocket bluetoothSocket;
 
     private TextView tvBT;
+    private TextView tvPrint;
+    private TextView tvUpload;
+            
 
     // identificador unico default
     private UUID aplicacionUUID = UUID
@@ -104,6 +114,10 @@ public class CapturaActivity extends AppCompatActivity {
                 ibClienteEdit.setVisibility(View.VISIBLE);
                 //btnCliente.setVisibility(View.INVISIBLE);
                 btnCliente.setEnabled(false);
+                //Guardamos el resultado de la activyty
+                ResultadoFormulario[0] = resultCode;
+                //Verificar boton de impresora
+                VerificarFormulario();
 
                 //Toast.makeText(CapturaActivity.this, "Validacion OK", Toast.LENGTH_SHORT).show();
             }
@@ -116,6 +130,10 @@ public class CapturaActivity extends AppCompatActivity {
                 imgExteriorOK.setVisibility(View.VISIBLE);
                 ibExteriorEdit.setVisibility(View.VISIBLE);
                 btnExterior.setEnabled(false);
+                //Guardamos el resultado de la activyty
+                ResultadoFormulario[1] = resultCode;
+                //Verificar boton de impresora
+                VerificarFormulario();
             }
         }
 
@@ -126,6 +144,10 @@ public class CapturaActivity extends AppCompatActivity {
                 imgInteriorOK.setVisibility(View.VISIBLE);
                 ibInteriorEdit.setVisibility(View.VISIBLE);
                 btnInterior.setEnabled(false);
+                //Guardamos el resultado de la activyty
+                ResultadoFormulario[2] = resultCode;
+                //Verificar boton de impresora
+                VerificarFormulario();
             }
         }
 
@@ -136,10 +158,14 @@ public class CapturaActivity extends AppCompatActivity {
                 imgMotorOK.setVisibility(View.VISIBLE);
                 ibMotorEdit.setVisibility(View.VISIBLE);
                 btnMotor.setEnabled(false);
+                //Guardamos el resultado de la activyty
+                ResultadoFormulario[3] = resultCode;
+                //Verificar boton de impresora
+                VerificarFormulario();
 
             }
         }
-
+        //Bluetooth Sincronizacion
         if (requestCode == REQUEST_DISPOSITIVO) {
             if (data != null) {
                 final String direccionDispositivo = data.getExtras().getString("DireccionDispositivo");
@@ -167,6 +193,7 @@ public class CapturaActivity extends AppCompatActivity {
                                 public void run() {
                                     tvBT.setText(nombreDispositivo + " conectada");
                                     Toast.makeText(CapturaActivity.this, "Dispositivo Conectado", Toast.LENGTH_SHORT).show();
+                                    ibtnSincronizar.setImageDrawable(getResources().getDrawable(R.drawable.bt_on100));
                                 }
                             });
 
@@ -184,11 +211,9 @@ public class CapturaActivity extends AppCompatActivity {
                         }
                     }
                 }).start();
-
             }
-
         }
-
+        //Imprimir
         if (requestCode == FORMAT_TICKET){
             Bundle extras = data.getExtras();
             if(extras != null){
@@ -208,12 +233,22 @@ public class CapturaActivity extends AppCompatActivity {
                 }
             }
         }
+        //Reporte fotografico
+        if (requestCode == CODE_REPORTE){
+            Bundle extras = data.getExtras();
+            if (extras != null){
+                rutasImg = extras.getStringArrayList("reporte");
+                imgReporteOK.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_captura);
+
+        ResultadoFormulario = new int[4];
 
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
@@ -225,20 +260,28 @@ public class CapturaActivity extends AppCompatActivity {
         ibClienteEdit = findViewById(R.id.imageButtonClienteEdit);
         btnReporteFotografico = findViewById(R.id.buttonReporteF);
 
-        btnTest = findViewById(R.id.buttonTest);
-        btnSH = findViewById(R.id.buttonSH);
+        ibtnPrint = findViewById(R.id.imageButtonPrint);
+        ibtnSincronizar = findViewById(R.id.imageButtonBT);
+        ibtnUpload = findViewById(R.id.imageButtonUpload);
 
         imgClienteOK = findViewById(R.id.imageViewClienteOK);
         imgExteriorOK = findViewById(R.id.imageViewExteriorOK);
         imgInteriorOK = findViewById(R.id.imageViewInteriorOK);
         imgMotorOK = findViewById(R.id.imageViewMotorOK);
+        imgReporteOK = findViewById(R.id.imageViewReporteOK);
 
         ibClienteEdit = findViewById(R.id.imageButtonClienteEdit);
         ibExteriorEdit = findViewById(R.id.imageButtonExteriorEdit);
         ibInteriorEdit = findViewById(R.id.imageButtonInteriorEdit);
         ibMotorEdit = findViewById(R.id.imageButtonMotorEdit);
+        ibtnReporteEdit = findViewById(R.id.imageButtonReporteEdit);
 
         tvBT = findViewById(R.id.textViewBT);
+        tvPrint = findViewById(R.id.textViewPrint);
+        tvUpload = findViewById(R.id.textViewUpload);
+
+        ibtnPrint.setEnabled(false);
+        ibtnUpload.setEnabled(false);
 
 
         //Evento boton cliente
@@ -282,6 +325,7 @@ public class CapturaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editModule(CODE_CLIENTE);
+                ResultadoFormulario[0] = 0;
             }
         });
 
@@ -290,6 +334,7 @@ public class CapturaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editModule(CODE_EXTERIOR);
+                ResultadoFormulario[1] = 0;
             }
         });
 
@@ -298,6 +343,7 @@ public class CapturaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editModule(CODE_INTERIOR);
+                ResultadoFormulario[2] = 0;
             }
         });
 
@@ -306,12 +352,24 @@ public class CapturaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editModule(CODE_MOTOR);
+                ResultadoFormulario[3] = 0;
+            }
+        });
+
+        //Evento Reporte Edit
+        ibtnReporteEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editModule(CODE_REPORTE);
+                for (int i = 0; i< rutasImg.size(); i++){
+                    rutasImg.set(i, "");
+                }
             }
         });
 
 
-        //Evento para mostrar el recycler view
-        btnSH.setOnClickListener(new View.OnClickListener() {
+        //Evento Sincornizar impresora
+        ibtnSincronizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CapturaActivity.this, ListaBTActivity.class);
@@ -319,8 +377,8 @@ public class CapturaActivity extends AppCompatActivity {
             }
         });
 
-        //Evento
-        btnTest.setOnClickListener(new View.OnClickListener() {
+        //Evento imprimir
+        ibtnPrint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (bluetoothSocket != null) {
@@ -334,34 +392,20 @@ public class CapturaActivity extends AppCompatActivity {
                     intent.putExtras(bundle);
                     startActivityForResult(intent, FORMAT_TICKET);
 
-                        /*
-                        int fuente = Integer.parseInt(spnFuente.getSelectedItem().toString());
-                        int negrita = spnNegrita.getSelectedItem().toString().equals("Si") ? 1 : 0;
-                        int ancho = Integer.parseInt(spnAncho.getSelectedItem().toString());
-                        int alto = Integer.parseInt(spnAlto.getSelectedItem().toString());
-                        int fuente = 0;
-                        int negrita = 0;
-                        int ancho = 0;
-                        int alto = 0;
-                         */
-
-                    //printText(buffer[1] + " " + buffer[2] + " "+ buffer[3], 0, 0, 0, 0);
-                    //printText(buffer[2], 0, 0, 0, 0);
-                    //printText(buffer[3], 0, 0, 0, 0);
-                    //printText(buffer[4], 0, 0, 0, 0);
-
                 } else {
                     Log.e(TAG_DEBUG, "Socket nulo");
-                    tvBT.setText("Impresora no conectada");
+                    tvPrint.setText("Sin Conexion");
+                    Toast.makeText(CapturaActivity.this, "Impresora sin conexion", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
+        //
         btnReporteFotografico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CapturaActivity.this, ReporteActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, CODE_REPORTE);
 
 
             }
@@ -406,6 +450,9 @@ public class CapturaActivity extends AppCompatActivity {
                                 break;
                             case CODE_MOTOR:
                                 btnMotor.setEnabled(true);
+                                break;
+                            case CODE_REPORTE:
+                                btnReporteFotografico.setEnabled(true);
                                 break;
                         }
                     }
@@ -498,5 +545,21 @@ public class CapturaActivity extends AppCompatActivity {
             Toast.makeText(CapturaActivity.this, "Error al intentar imprimir imagen", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
+    }
+
+    private void  VerificarFormulario(){
+        //Verificar si todas los formularios esta llenos
+        for (int i = 0; i < ResultadoFormulario.length; i++){
+            if (ResultadoFormulario[i] != Activity.RESULT_OK){
+                return;
+            }
+        }
+        //Habilitar impresion
+        habilitarImpresion();
+    }
+
+    private void habilitarImpresion(){
+        ibtnPrint.setEnabled(true);
+        ibtnPrint.setImageDrawable(getResources().getDrawable(R.drawable.impresora_icon));
     }
 }

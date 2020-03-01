@@ -752,7 +752,6 @@ public class TicketActivity extends AppCompatActivity {
         else{
             rows.get(94).append(motorData.getMotorCarga());
         }
-        //TODO establecer else para guardar el texto en caso de que no supere el limite de la linea
 
         //observaciones
         if (motorData.getMotorObservaciones().length() + getResources().getString(R.string.ticket_motor_footer7).length() > LIMITE_CARACTERES_POR_LINEA ){

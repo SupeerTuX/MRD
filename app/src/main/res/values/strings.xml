@@ -148,6 +148,13 @@
     <string name="boton_guardar">Guardar Reporte</string>
 
 
+    <string name="intro">Bienvenido Al Sistema De Captura</string>
+    <string name="intro2">Gruaz Mendez</string>
+    <string name="version">TuXDevelop Version: Beta 0.9.1</string>
+
+
+
+
 
     <string-array name="inventario_array">
         <item>Alcoholimetro</item>

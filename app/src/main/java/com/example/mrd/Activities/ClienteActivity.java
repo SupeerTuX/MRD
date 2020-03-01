@@ -2,6 +2,7 @@ package com.example.mrd.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -135,14 +136,13 @@ public class ClienteActivity extends AppCompatActivity {
                     bundle.putSerializable("cliente", clienteData);
 
                     intent.putExtras(bundle);
-                    setResult(5, intent);
+                    setResult(Activity.RESULT_OK, intent);
                     finish();
 
                 } else {
                     Toast.makeText(ClienteActivity.this, "Validacion Incorrecta Debe Llenar Todos Los Campos", Toast.LENGTH_LONG).show();
                     //Toast.makeText(ClienteActivity.this, "Debe Llenar Todos Los Campos", Toast.LENGTH_LONG).show();
                 }
-
             }
         });
 
