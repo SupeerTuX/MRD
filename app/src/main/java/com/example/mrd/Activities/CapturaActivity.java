@@ -26,16 +26,27 @@ import com.example.mrd.DataModel.ExteriorData;
 import com.example.mrd.DataModel.InteriorData;
 import com.example.mrd.DataModel.FormularioModel;
 import com.example.mrd.DataModel.MotorData;
+import com.example.mrd.Network.NetworkClient;
+import com.example.mrd.Network.UploadAPI;
 import com.example.mrd.R;
 import com.example.mrd.Utilidades.PrintBitmap;
 import com.example.mrd.Utilidades.StringUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.UUID;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class CapturaActivity extends AppCompatActivity {
 
@@ -238,6 +249,7 @@ public class CapturaActivity extends AppCompatActivity {
                 Bundle extras = data.getExtras();
                 rutasImg = extras.getStringArrayList("reporte");
                 imgReporteOK.setVisibility(View.VISIBLE);
+                ibtnUpload.setEnabled(true);
             }
         }
     }
@@ -407,6 +419,16 @@ public class CapturaActivity extends AppCompatActivity {
             }
         });
 
+        //Evento Upload Reporte
+        ibtnUpload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO Subir Reporte Texto
+                //Subir Reporte fotografico
+                uploadToServer(rutasImg.get(0));
+            }
+        });
+
     }
 
     private void cerrarConexion() {
@@ -558,5 +580,31 @@ public class CapturaActivity extends AppCompatActivity {
     private void habilitarImpresion(){
         ibtnPrint.setEnabled(true);
         ibtnPrint.setImageDrawable(getResources().getDrawable(R.drawable.impresora_icon));
+    }
+
+
+    private void uploadToServer(String filePath) {
+        Retrofit retrofit = NetworkClient.getRetrofitClient(this);
+        UploadAPI uploadAPI = retrofit.create(UploadAPI.class);
+        //Create a file object using file path
+        File file = new File(filePath);
+        // Create a request body with file and image media type
+        RequestBody fileReqBody = RequestBody.create(MediaType.parse("image/*"), file);
+        // Create MultipartBody.Part using file request-body,file name and part name
+        MultipartBody.Part part = MultipartBody.Part.createFormData("example1", file.getName(), fileReqBody);
+        //Create request body with text description and text media type
+        RequestBody description = RequestBody.create(MediaType.parse("text/plain"), "image-type");
+        //
+        Call call = uploadAPI.uploadImage(part, description);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                Toast.makeText(CapturaActivity.this, "Upload OK", Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                Toast.makeText(CapturaActivity.this, "Upload Fail", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
