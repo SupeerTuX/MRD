@@ -62,7 +62,7 @@ public class ReporteActivity extends AppCompatActivity {
         ibtnTrasera = findViewById(R.id.imageButtonTrasera);
         ibtnLado1 = findViewById(R.id.imageButtonLado1);
         ibtnLado2 = findViewById(R.id.imageButtonLado2);
-        btnGuardar = findViewById(R.id.buttonValidar);
+        btnGuardar = findViewById(R.id.buttonGuardar);
 
 
 
@@ -126,8 +126,6 @@ public class ReporteActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
 
     }
 

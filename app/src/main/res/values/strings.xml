@@ -153,9 +153,6 @@
     <string name="version">TuXDevelop Version: Beta 0.9.1</string>
 
 
-
-
-
     <string-array name="inventario_array">
         <item>Alcoholimetro</item>
         <item>Asistencia</item>
@@ -189,5 +186,6 @@
         <item></item>
         <item>MOTIVO DE INVENTARIO</item>
     </string-array>
+    <string name="title_activity_maps">Map</string>
 
 </resources>

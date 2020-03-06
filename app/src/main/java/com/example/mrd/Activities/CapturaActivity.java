@@ -162,7 +162,6 @@ public class CapturaActivity extends AppCompatActivity {
                 ResultadoFormulario[3] = resultCode;
                 //Verificar boton de impresora
                 VerificarFormulario();
-
             }
         }
         //Bluetooth Sincronizacion
@@ -235,8 +234,8 @@ public class CapturaActivity extends AppCompatActivity {
         }
         //Reporte fotografico
         if (requestCode == CODE_REPORTE){
-            Bundle extras = data.getExtras();
-            if (extras != null){
+            if (data != null){
+                Bundle extras = data.getExtras();
                 rutasImg = extras.getStringArrayList("reporte");
                 imgReporteOK.setVisibility(View.VISIBLE);
             }
@@ -320,6 +319,14 @@ public class CapturaActivity extends AppCompatActivity {
             }
         });
 
+        btnReporteFotografico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CapturaActivity.this, ReporteActivity.class);
+                startActivityForResult(intent, CODE_REPORTE);
+            }
+        });
+
         //Evento Cliente Editar
         ibClienteEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -400,16 +407,6 @@ public class CapturaActivity extends AppCompatActivity {
             }
         });
 
-        //
-        btnReporteFotografico.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CapturaActivity.this, ReporteActivity.class);
-                startActivityForResult(intent, CODE_REPORTE);
-
-
-            }
-        });
     }
 
     private void cerrarConexion() {

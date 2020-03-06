@@ -1,5 +1,6 @@
 package com.example.mrd.Activities;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -29,6 +30,7 @@ public class ClienteActivity extends AppCompatActivity {
     private Button btnValidar;
     private ImageButton ibtnDate;
     private ImageButton ibtnTime;
+    private ImageButton ibtnGPS;
 
     private EditText etFolio;
     private EditText etDate;
@@ -54,6 +56,7 @@ public class ClienteActivity extends AppCompatActivity {
     private static final String CERO = "0";
     private static final String BARRA = "/";
     private static final String DOS_PUNTOS = ":";
+    private static final int CODE_GPS = 11;
 
     //Calendario para obtener fecha & hora
     public final Calendar c = Calendar.getInstance();
@@ -77,6 +80,7 @@ public class ClienteActivity extends AppCompatActivity {
         btnValidar = findViewById(R.id.buttonValidar);
         ibtnDate = findViewById(R.id.imageButtonDate);
         ibtnTime = findViewById(R.id.imageButtonTime);
+        ibtnGPS =findViewById(R.id.imageButtonGps);
 
         etFolio = findViewById(R.id.editTextFolio);
         etDate = findViewById(R.id.editTextDate);
@@ -155,7 +159,6 @@ public class ClienteActivity extends AppCompatActivity {
 
             }
         });
-
         //Evento captura de la hora
         ibtnTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,7 +166,14 @@ public class ClienteActivity extends AppCompatActivity {
                 obtenerHora();
             }
         });
-
+        //Evento obtener las coordenadas del gps
+        ibtnGPS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ClienteActivity.this, MapsActivity.class);
+                startActivityForResult(intent, CODE_GPS);
+            }
+        });
 
     }
 
@@ -215,5 +225,19 @@ public class ClienteActivity extends AppCompatActivity {
         }, hora, minuto, false);
 
         recogerHora.show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == CODE_GPS){
+            if(data != null){
+                Bundle extras = data.getExtras();
+                String direccion = extras.getString("direccion");
+                etDireccion.setText(direccion);
+            }
+        }
+
     }
 }
