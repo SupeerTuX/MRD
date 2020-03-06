@@ -18,6 +18,141 @@
     <string name="rb_text_solo_inventario">Solo Iventario</string>
     <string name="rb_text_solo_operativo_especial">Operativo Especial</string>
     <string name="tv_text">Motivo De Inventario</string>
+    <string name="ticket_separador">-----------------------------------------------</string>
+    <string name="ticket_header">***********************************************</string>
+    <string name="ticket_header2">INVENTARIO DEL VEHICULO Y ACUSE DE RECIBO</string>
+    <string name="ticket_linea">_______________________________________________</string>
+    <string name="ticket_folio">FOLIO: </string>
+    <string name="ticket_fecha">Fecha: </string>
+    <string name="ticket_hora">Hora: </string>
+    <string name="ticket_direccion">Direccion de recepcion de unidad: </string>
+    <string name="ticket_motivo">*************MOTIVO DE INVENTARIO**************</string>
+    <string name="ticket_motivo_asistencia">Asistencia</string>
+    <string name="ticket_motivo_siniestro">Siniestro</string>
+    <string name="ticket_motivo_alcoholimetro">Alcoholimetro</string>
+    <string name="ticket_motivo_mal_estacionado">Mal Estacionado</string>
+    <string name="ticket_motivo_detencion">Detencion</string>
+    <string name="ticket_motivo_solo_inventario">Solo Inventario</string>
+    <string name="ticket_motivo_operativo_especial">Operativo Especial</string>
+    <string name="ticket_selected">(x)</string>
+    <string name="ticket_unselected">( )</string>
+    <string name="ticket_vehiculo_marca">Vehiculo Marca: </string>
+    <string name="ticket_vehiculo_tipo">Tipo: </string>
+    <string name="ticket_vehiculo_modelo">Modelo: </string>
+    <string name="ticket_vehiculo_color">Color: </string>
+    <string name="ticket_vehiculo_placas">Placas: </string>
+    <string name="ticket_vehiculo_serie">No. Serie: </string>
+    <string name="ticket_vehiculo_conductor">Conductor del vehiculo o propietario: </string>
+    <string name="ticket_vehiculo_llaves">Llaves: </string>
+    <string name="ticket_vehiculo_tel">Tel: </string>
+    <string name="ticket_vehiculo_grua">Grua: </string>
+    <string name="ticket_vehiculo_clave">Clave Operador: </string>
+    <string name="ticket_vehiculo_autoridad">Autoridad o empresa solicitante: </string>
+    <string name="ticket_vehiculo_header_estado">ESTADO EN QUE SE RECIVE EL VEHICULO</string>
+    <string name="ticket_vehiculo_header_exterior">--EXTERIOR-----------------Bien--Mal--No Trae--</string>
+    <string name="ticket_vehiculo_header_interior">--INTERIOR-----------------Bien--Mal--No Trae--</string>
+    <string name="ticket_vehiculo_header_motor">--MOTOR--------------------Bien--Mal--No Trae--</string>
+
+    <string name="ticket_ext_defensa_delantera">Defensa delantera</string>
+    <string name="ticket_ext_carroceria">Carroceria sin golpes</string>
+    <string name="ticket_ext_parrilla">Parrilla</string>
+    <string name="ticket_ext_faros">Faros</string>
+    <string name="ticket_ext_cofre">Cofre</string>
+    <string name="ticket_ext_parabrisas">Parabrisas</string>
+    <string name="ticket_ext_limpiadores">Limpiadores</string>
+    <string name="ticket_ext_emblemas">Emblemas</string>
+    <string name="ticket_ext_portezuela_izq">Portezuela Izq.</string>
+    <string name="ticket_ext_cristal_izq">Cristal Lat. Izq.</string>
+    <string name="ticket_ext_medallon">Medallon</string>
+    <string name="ticket_ext_cajuela">Cajuela</string>
+    <string name="ticket_ext_defensa_trasera">Defensa trasera</string>
+    <string name="ticket_ext_portezuela_der">Portezuela Der.</string>
+    <string name="ticket_ext_cristal_der">Cristal Lat. Der.</string>
+    <string name="ticket_ext_antenas">Antenas</string>
+    <string name="ticket_ext_espejos">Espejos</string>
+    <string name="ticket_ext_tapones_ruedas">Tapones ruedas</string>
+    <string name="ticket_ext_tapon_gasolina">Tapon de gasolina</string>
+    <string name="ticket_ext_salpicadera_der">Salpicadera Der</string>
+    <string name="ticket_ext_salpicadera_izq">Salpicadera Izq</string>
+
+
+    <string name="ticket_int_tablero">Tablero</string>
+    <string name="ticket_int_volante">Volante</string>
+    <string name="ticket_int_radio">Radio</string>
+    <string name="ticket_int_equipo_sonido">Equipo de sonido</string>
+    <string name="ticket_int_encendedor">Encendedor</string>
+    <string name="ticket_int_espejo">Espejo</string>
+    <string name="ticket_int_asientos">Asientos</string>
+    <string name="ticket_int_tapetes_alfombra">Tapetes de alfombra</string>
+    <string name="ticket_int_tapetes_hule">Tapetes de hule</string>
+    <string name="ticket_int_extintor">Extintor</string>
+    <string name="ticket_int_gato">Gato y maneral</string>
+    <string name="ticket_int_triangulo">Triangulo de seguridad</string>
+    <string name="ticket_int_bocinas">Bocinas</string>
+    <string name="ticket_int_luces">Luces</string>
+    <string name="ticket_int_tag">Tag</string>
+    <string name="ticket_int_vial">Vial pass</string>
+    <string name="ticket_int_sim">Sim card</string>
+    <string name="ticket_int_llantas">Llantas</string>
+    <string name="ticket_int_llantas_marca">Marca: </string>
+    <string name="ticket_int_llantas_medida">Medida: </string>
+    <string name="ticket_int_llantas_cantidad">Cantidad: </string>
+
+
+    <string name="ticket_motor_radiador">Radiador</string>
+    <string name="ticket_motor_motoventilador">Motoventilador</string>
+    <string name="ticket_motor_alternador">Alternador</string>
+    <string name="ticket_motor_cable">Cable de bujias</string>
+    <string name="ticket_motor_depurador">Depurador</string>
+    <string name="ticket_motor_carburador">Carburador</string>
+    <string name="ticket_motor_filtro">Filtro de aire</string>
+    <string name="ticket_motor_inyectores">Inyectores</string>
+    <string name="ticket_motor_compresor">Compresor</string>
+    <string name="ticket_motor_computadora">Computadora</string>
+    <string name="ticket_motor_bateria">Bateria</string>
+    <string name="ticket_motor_bateria_marca">Marca :</string>
+    <string name="ticket_motor_gasolina">Tanque de gasolina</string>
+
+
+    <string name="ticket_motor_footer1">ATENCION: Porfavor recoja sus objetos</string>
+    <string name="ticket_motor_footer2">personales que se encuentren en el vehiculo</string>
+    <string name="ticket_motor_footer3">ya que la empresa no se hace responsable</string>
+    <string name="ticket_motor_footer4">de ellos</string>
+    <string name="ticket_motor_footer5">Carga consiste en: </string>
+    <string name="ticket_motor_footer6">_</string>
+    <string name="ticket_motor_footer7">Observaciones: </string>
+    <string name="ticket_motor_footer8">_</string>
+
+    <string name="ticket_motor_footer9">NO NOS HACEMOS RESPONSABLES POR RECLAMACIONES</string>
+    <string name="ticket_motor_footer10">DE DAÑOS Y/O PERDIDA POR OBJETOS Y/O</string>
+    <string name="ticket_motor_footer11">COMPONENTES OLVIDADOS EN SU AUTO SI ESTOS NO </string>
+    <string name="ticket_motor_footer12">FUERON RECLAMADOS DE MANERA INCIAL EN EL</string>
+    <string name="ticket_motor_footer13">INVENTARIO</string>
+
+    <string name="ticket_motor_firma1">NOMBRE Y FIRMA DE LA PERSONA QUE ENTREGA</string>
+    <string name="ticket_motor_firma2">VEHICULO DE CONFORMIDAD</string>
+
+    <string name="ticket_motor_firma3">NOMBRE Y FIRMA DE OFICIAL QUE INTERVINO</string>
+
+    <string name="ticket_motor_firma4">NOMBRE Y FIRMA DE OPERADOR QUE RECIVE</string>
+    <string name="ticket_motor_firma5">VEHICULO DE CONFORMIDAD</string>
+
+    <string name="ticket_bien">Bien</string>
+    <string name="ticket_mal">Mal</string>
+    <string name="ticket_no_trae">No Trae</string>
+
+    <string name="foto_frontal">Foto Frontal</string>
+    <string name="foto_trasera">Foto Trasera</string>
+    <string name="foto_lado1">Foto De Lado</string>
+    <string name="foto_lado2">Foto De Lado</string>
+    <string name="boton_guardar">Guardar Reporte</string>
+
+
+    <string name="intro">Bienvenido Al Sistema De Captura</string>
+    <string name="intro2">Gruaz Mendez</string>
+    <string name="version">TuXDevelop Version: Beta 0.9.1</string>
+
+
     <string-array name="inventario_array">
         <item>Alcoholimetro</item>
         <item>Asistencia</item>
@@ -33,5 +168,24 @@
         <item>Mal</item>
         <item>No Trae</item>
     </string-array>
+
+    <string-array name="mac_array">
+        <item>00:11:22:33:44:55:66</item>
+        <item>11:22:33:44:55:66:77</item>
+        <item>22:33:44:55:66:77:88</item>
+    </string-array>
+
+    <string-array name="formulario">
+        <item>***********************************************</item>
+        <item>*   INVENTARIO DEL VEHICULO Y ACUSE DE RECIBO   *</item>
+        <item>***********************************************</item>
+        <item>FOLIO: </item>
+        <item>Fecha: </item>
+        <item>Hora: </item>
+        <item>Direccion de recepcion de unidad: </item>
+        <item></item>
+        <item>MOTIVO DE INVENTARIO</item>
+    </string-array>
+    <string name="title_activity_maps">Map</string>
 
 </resources>

@@ -3,13 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
+    android:layout_height="match_parent">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".Activities.InteriorActivity">
 
 
@@ -33,8 +32,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Tablero"
             android:background="#80D8FF"
+            android:text="Tablero"
             android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@+id/spinnerInt1"
             app:layout_constraintStart_toStartOf="parent"
@@ -76,8 +75,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Radio"
             android:background="#80D8FF"
+            android:text="Radio"
             android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@+id/spinnerInt3"
             app:layout_constraintStart_toStartOf="parent"
@@ -119,9 +118,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:background="#80D8FF"
             android:text="Encendedor"
             android:textSize="18sp"
-            android:background="#80D8FF"
             app:layout_constraintEnd_toStartOf="@+id/spinnerInt5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView28" />
@@ -153,9 +152,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:background="#80D8FF"
             android:text="Asientos"
             android:textSize="18sp"
-            android:background="#80D8FF"
             app:layout_constraintEnd_toStartOf="@+id/spinnerInt7"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView30" />
@@ -205,9 +204,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:background="#80D8FF"
             android:text="Tapetes De Hule"
             android:textSize="18sp"
-            android:background="#80D8FF"
             app:layout_constraintEnd_toStartOf="@+id/spinnerInt9"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView32" />
@@ -239,9 +238,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:background="#80D8FF"
             android:text="Gato Y Maneral"
             android:textSize="18sp"
-            android:background="#80D8FF"
             app:layout_constraintEnd_toStartOf="@+id/spinnerInt11"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView34" />
@@ -291,9 +290,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:background="#80D8FF"
             android:text="Bocinas"
             android:textSize="18sp"
-            android:background="#80D8FF"
             app:layout_constraintEnd_toStartOf="@+id/spinnerInt13"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView36" />
@@ -334,9 +333,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:background="#80D8FF"
             android:text="Tag"
             android:textSize="18sp"
-            android:background="#80D8FF"
             app:layout_constraintEnd_toStartOf="@+id/spinnerInt15"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView38" />
@@ -377,9 +376,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:background="#80D8FF"
             android:text="Sim Card"
             android:textSize="18sp"
-            android:background="#80D8FF"
             app:layout_constraintEnd_toStartOf="@+id/spinnerInt17"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView40" />
@@ -416,9 +415,10 @@
             android:layout_marginEnd="8dp"
             android:ems="10"
             android:hint="Marca Llantas"
-            android:inputType="textPersonName"
+            android:inputType="textCapWords"
             android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/editTextLlantasCantidad"
+            app:layout_constraintEnd_toStartOf="@+id/editTextLlantasMedida"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView58" />
 
@@ -430,11 +430,11 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:ems="10"
-            android:hint="Medida"
-            android:inputType="textPersonName"
+            android:hint="Cantidad"
+            android:inputType="numberDecimal"
             android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/editTextLlantasMedida"
-            app:layout_constraintStart_toEndOf="@+id/editTextLlantasMarca"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/editTextLlantasMedida"
             app:layout_constraintTop_toBottomOf="@+id/textView58" />
 
         <EditText
@@ -445,11 +445,11 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:ems="10"
-            android:hint="Cantidad"
-            android:inputType="numberDecimal"
+            android:hint="Medida"
+            android:inputType="textCapWords"
             android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/editTextLlantasCantidad"
+            app:layout_constraintEnd_toStartOf="@+id/editTextLlantasCantidad"
+            app:layout_constraintStart_toEndOf="@+id/editTextLlantasMarca"
             app:layout_constraintTop_toBottomOf="@+id/textView58" />
 
         <Button
@@ -464,8 +464,10 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextLlantasMarca" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextLlantasMarca"
+            app:layout_constraintVertical_bias="1.0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

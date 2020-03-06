@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.ReporteActivity">
+
+    <ImageButton
+        android:id="@+id/imageButtonLado2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="#FFFFFF"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView61"
+        app:srcCompat="@drawable/auto_lateral2" />
+
+    <ImageButton
+        android:id="@+id/imageButtonLado1"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:background="#FFFFFF"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView60"
+        app:srcCompat="@drawable/auto_lateral1" />
+
+    <ImageButton
+        android:id="@+id/imageButtonTrasera"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="#00FFFFFF"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView59"
+        app:srcCompat="@drawable/auto_trasero" />
+
+    <ImageButton
+        android:id="@+id/imageButtonFrontal"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:background="#00FFFFFF"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView59"
+        app:srcCompat="@drawable/auto_frontal" />
+
+    <TextView
+        android:id="@+id/textView59"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="#5E5E5E"
+        android:text="Captura De Reporte Fotografico"
+        android:textAlignment="center"
+        android:textColor="#2DA9F7"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView60"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/foto_frontal"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonFrontal"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonFrontal"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonFrontal" />
+
+    <TextView
+        android:id="@+id/textView61"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/foto_trasera"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonTrasera"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonTrasera"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonTrasera" />
+
+    <TextView
+        android:id="@+id/textView62"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/foto_lado1"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonLado1"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonLado1"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonLado1" />
+
+    <TextView
+        android:id="@+id/textView63"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/foto_lado2"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonLado2"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonLado2"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonLado2" />
+
+    <Button
+        android:id="@+id/buttonGuardar"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorValidacion"
+        android:text="@string/boton_guardar"
+        android:textColor="@color/colorLightGray"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

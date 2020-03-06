@@ -6,10 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".Activities.CapturaActivity">
 
+    <ImageButton
+        android:id="@+id/imageButtonReporteEdit"
+        style="@android:style/Widget.ImageButton"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:scaleType="fitXY"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonMotorEdit"
+        app:srcCompat="@drawable/edit_icon" />
+
+    <ImageView
+        android:id="@+id/imageViewReporteOK"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/buttonReporteF"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewMotorOK"
+        app:srcCompat="@drawable/ok_icon" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:background="#304FFE"
         android:text="Nueva Captura"
         android:textAlignment="center"
@@ -41,8 +65,9 @@
         android:text="Capture los siguientes datos:"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewUpload" />
 
     <Button
         android:id="@+id/buttonExterior"
@@ -178,5 +203,80 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButtonInteriorEdit"
         app:srcCompat="@drawable/edit_icon" />
+
+    <TextView
+        android:id="@+id/textViewBT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Sincronizar Impresora"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonBT"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonBT"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonBT" />
+
+    <Button
+        android:id="@+id/buttonReporteF"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="16dp"
+        android:text="Reporte Fotografico"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMotor" />
+
+    <ImageButton
+        android:id="@+id/imageButtonBT"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/bt_off100" />
+
+    <ImageButton
+        android:id="@+id/imageButtonPrint"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="#00FFFFFF"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/impresora_icon_bn" />
+
+    <ImageButton
+        android:id="@+id/imageButtonUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonPrint"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonBT"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/upload_off" />
+
+    <TextView
+        android:id="@+id/textViewUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Subir Reporte"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonUpload"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonUpload"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonUpload" />
+
+    <TextView
+        android:id="@+id/textViewPrint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Sin  Conexion"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonPrint"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonPrint"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonPrint" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

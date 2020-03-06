@@ -1,0 +1,1394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textViewTicket1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:maxLength="47"
+            android:text="@string/ticket_header"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.47"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        <TextView
+            android:id="@+id/textViewTicket2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_header2"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket1" />
+
+        <TextView
+            android:id="@+id/textViewTicket3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_header"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket2" />
+
+        <TextView
+            android:id="@+id/textViewTicket4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_folio"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket3" />
+
+        <TextView
+            android:id="@+id/textViewTicket5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_fecha"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket4" />
+
+        <TextView
+            android:id="@+id/textViewTicket6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_direccion"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket5" />
+
+        <TextView
+            android:id="@+id/textViewTicket7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_linea"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket6" />
+
+        <TextView
+            android:id="@+id/textViewTicket8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motivo"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket7" />
+
+        <TextView
+            android:id="@+id/textViewTicket9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motivo_asistencia"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket8" />
+
+        <TextView
+            android:id="@+id/textViewTicket10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motivo_alcoholimetro"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket9" />
+
+        <TextView
+            android:id="@+id/textViewTicket11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motivo_detencion"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket10" />
+
+        <TextView
+            android:id="@+id/textViewTicket12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motivo_operativo_especial"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket11" />
+
+        <TextView
+            android:id="@+id/textViewTicket13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_separador"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket12" />
+
+        <TextView
+            android:id="@+id/textViewTicket14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_vehiculo_marca"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket13" />
+
+        <TextView
+            android:id="@+id/textViewTicket15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_vehiculo_modelo"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket14" />
+
+        <TextView
+            android:id="@+id/textViewTicket16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_vehiculo_placas"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket15" />
+
+        <TextView
+            android:id="@+id/textViewTicket17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_vehiculo_conductor"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket16" />
+
+        <TextView
+            android:id="@+id/textViewTicket18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_linea"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket17" />
+
+        <TextView
+            android:id="@+id/textViewTicket19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_vehiculo_llaves"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket18" />
+
+        <TextView
+            android:id="@+id/textViewTicket20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_vehiculo_grua"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket19" />
+
+        <TextView
+            android:id="@+id/textViewTicket21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_vehiculo_autoridad"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket20" />
+
+        <TextView
+            android:id="@+id/textViewTicket22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_linea"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket21" />
+
+        <TextView
+            android:id="@+id/textViewTicket23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_separador"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket22" />
+
+        <TextView
+            android:id="@+id/textViewTicket24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_vehiculo_header_estado"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket23" />
+
+        <TextView
+            android:id="@+id/textViewTicket25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_separador"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket24" />
+
+        <TextView
+            android:id="@+id/textViewTicket26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_vehiculo_header_exterior"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.529"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket25" />
+
+        <TextView
+            android:id="@+id/textViewTicket27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_ext_defensa_delantera"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket26" />
+
+        <TextView
+            android:id="@+id/textViewTicket28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_ext_carroceria"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket27" />
+
+        <TextView
+            android:id="@+id/textViewTicket29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_ext_parrilla"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket28" />
+
+        <TextView
+            android:id="@+id/textViewTicket30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_ext_faros"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket29" />
+
+        <TextView
+            android:id="@+id/textViewTicket31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_ext_cofre"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket30" />
+
+        <TextView
+            android:id="@+id/textViewTicket32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_ext_parabrisas"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket31" />
+
+        <TextView
+            android:id="@+id/textViewTicket33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_ext_limpiadores"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket32" />
+
+        <TextView
+            android:id="@+id/textViewTicket34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_ext_emblemas"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket33" />
+
+        <TextView
+            android:id="@+id/textViewTicket35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_ext_portezuela_izq"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket34" />
+
+        <TextView
+            android:id="@+id/textViewTicket36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_ext_cristal_izq"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket35" />
+
+        <TextView
+            android:id="@+id/textViewTicket37"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_ext_medallon"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket36" />
+
+        <TextView
+            android:id="@+id/textViewTicket38"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_ext_cajuela"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket37" />
+
+        <TextView
+            android:id="@+id/textViewTicket39"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_ext_defensa_trasera"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket38" />
+
+        <TextView
+            android:id="@+id/textViewTicket40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_ext_portezuela_der"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket39" />
+
+        <TextView
+            android:id="@+id/textViewTicket41"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_ext_cristal_der"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket40" />
+
+        <TextView
+            android:id="@+id/textViewTicket42"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_ext_antenas"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket41" />
+
+        <TextView
+            android:id="@+id/textViewTicket43"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_ext_espejos"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket42" />
+
+        <TextView
+            android:id="@+id/textViewTicket44"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_ext_tapones_ruedas"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.486"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket43" />
+
+        <TextView
+            android:id="@+id/textViewTicket45"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_ext_tapon_gasolina"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket44" />
+
+        <TextView
+            android:id="@+id/textViewTicket46"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_ext_salpicadera_der"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket45" />
+
+        <TextView
+            android:id="@+id/textViewTicket47"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_ext_salpicadera_izq"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket46" />
+
+        <TextView
+            android:id="@+id/textViewTicket48"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_separador"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket47" />
+
+        <TextView
+            android:id="@+id/textViewTicket49"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_vehiculo_header_interior"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket48" />
+
+        <TextView
+            android:id="@+id/textViewTicket50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_separador"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket49" />
+
+        <TextView
+            android:id="@+id/textViewTicket51"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_int_tablero"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket50" />
+
+        <TextView
+            android:id="@+id/textViewTicket52"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_int_volante"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket51" />
+
+        <TextView
+            android:id="@+id/textViewTicket53"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_int_radio"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket52" />
+
+        <TextView
+            android:id="@+id/textViewTicket54"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_int_equipo_sonido"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket53" />
+
+        <TextView
+            android:id="@+id/textViewTicket55"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_int_encendedor"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket54" />
+
+        <TextView
+            android:id="@+id/textViewTicket56"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_int_espejo"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket55" />
+
+        <TextView
+            android:id="@+id/textViewTicket57"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_int_asientos"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket56" />
+
+        <TextView
+            android:id="@+id/textViewTicket58"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_int_tapetes_alfombra"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket57" />
+
+        <TextView
+            android:id="@+id/textViewTicket59"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_int_tapetes_hule"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket58" />
+
+        <TextView
+            android:id="@+id/textViewTicket60"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_int_extintor"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket59" />
+
+        <TextView
+            android:id="@+id/textViewTicket61"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_int_gato"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket60" />
+
+        <TextView
+            android:id="@+id/textViewTicket62"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_int_triangulo"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket61" />
+
+        <TextView
+            android:id="@+id/textViewTicket63"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_int_bocinas"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket62" />
+
+        <TextView
+            android:id="@+id/textViewTicket64"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_int_luces"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket63" />
+
+        <TextView
+            android:id="@+id/textViewTicket65"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_int_tag"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket64" />
+
+        <TextView
+            android:id="@+id/textViewTicket66"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_int_vial"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket65" />
+
+        <TextView
+            android:id="@+id/textViewTicket67"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_int_sim"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket66" />
+
+        <TextView
+            android:id="@+id/textViewTicket68"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_separador"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket67" />
+
+        <TextView
+            android:id="@+id/textViewTicket69"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_vehiculo_header_motor"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket68" />
+
+        <TextView
+            android:id="@+id/textViewTicket70"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_radiador"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket69" />
+
+        <TextView
+            android:id="@+id/textViewTicket71"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_motoventilador"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket70" />
+
+        <TextView
+            android:id="@+id/textViewTicket72"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_alternador"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket71" />
+
+        <TextView
+            android:id="@+id/textViewTicket73"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_cable"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket72" />
+
+        <TextView
+            android:id="@+id/textViewTicket74"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_depurador"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket73" />
+
+        <TextView
+            android:id="@+id/textViewTicket75"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_carburador"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket74" />
+
+        <TextView
+            android:id="@+id/textViewTicket76"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_filtro"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket75" />
+
+        <TextView
+            android:id="@+id/textViewTicket77"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_inyectores"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket76" />
+
+        <TextView
+            android:id="@+id/textViewTicket78"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_compresor"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket77" />
+
+        <TextView
+            android:id="@+id/textViewTicket79"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_computadora"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket78" />
+
+        <TextView
+            android:id="@+id/textViewTicket80"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_bateria"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket79" />
+
+        <TextView
+            android:id="@+id/textViewTicket81"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_bateria_marca"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket80" />
+
+        <TextView
+            android:id="@+id/textViewTicket82"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_separador"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket81" />
+
+        <TextView
+            android:id="@+id/textViewTicket83"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_int_llantas"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket82" />
+
+        <TextView
+            android:id="@+id/textViewTicket84"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_int_llantas_marca"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket83" />
+
+        <TextView
+            android:id="@+id/textViewTicket85"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_int_llantas_cantidad"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket84" />
+
+        <TextView
+            android:id="@+id/textViewTicket86"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_separador"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket85" />
+
+        <TextView
+            android:id="@+id/textViewTicket87"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_gasolina"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket86" />
+
+        <TextView
+            android:id="@+id/textViewTicket88"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket87" />
+
+        <TextView
+            android:id="@+id/textViewTicket89"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket88" />
+
+        <TextView
+            android:id="@+id/textViewTicket90"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_separador"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket89" />
+
+        <TextView
+            android:id="@+id/textViewTicket91"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_footer1"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket90" />
+
+        <TextView
+            android:id="@+id/textViewTicket92"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_footer2"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket91" />
+
+        <TextView
+            android:id="@+id/textViewTicket93"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_footer3"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket92" />
+
+        <TextView
+            android:id="@+id/textViewTicket94"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_footer4"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket93" />
+
+        <TextView
+            android:id="@+id/textViewTicket95"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_footer5"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket94" />
+
+        <TextView
+            android:id="@+id/textViewTicket96"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_linea"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket95" />
+
+        <TextView
+            android:id="@+id/textViewTicket97"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_footer7"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket96" />
+
+        <TextView
+            android:id="@+id/textViewTicket98"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_linea"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket97" />
+
+        <TextView
+            android:id="@+id/textViewTicket99"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_footer9"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket98" />
+
+        <TextView
+            android:id="@+id/textViewTicket100"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_footer10"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket99" />
+
+        <TextView
+            android:id="@+id/textViewTicket101"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_footer11"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket100" />
+
+        <TextView
+            android:id="@+id/textViewTicket102"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_footer12"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket101" />
+
+        <TextView
+            android:id="@+id/textViewTicket103"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_footer13"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket102" />
+
+        <TextView
+            android:id="@+id/textViewTicket104"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="_"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket103" />
+
+        <TextView
+            android:id="@+id/textViewTicket105"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_linea"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket104" />
+
+        <TextView
+            android:id="@+id/textViewTicket106"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_firma1"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket105" />
+
+        <TextView
+            android:id="@+id/textViewTicket107"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_firma2"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket106" />
+
+        <TextView
+            android:id="@+id/textViewTicket108"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="_"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket107" />
+
+        <TextView
+            android:id="@+id/textViewTicket109"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_linea"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket108" />
+
+        <TextView
+            android:id="@+id/textViewTicket110"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_firma3"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket109" />
+
+        <TextView
+            android:id="@+id/textViewTicket111"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="_"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket110" />
+
+        <TextView
+            android:id="@+id/textViewTicket112"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_linea"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket111" />
+
+        <TextView
+            android:id="@+id/textViewTicket113"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_firma3"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket112" />
+
+        <TextView
+            android:id="@+id/textViewTicket114"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:maxLength="47"
+            android:text="@string/ticket_motor_firma4"
+            android:textAlignment="center"
+            android:typeface="monospace"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTicket113" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/grua_logo400" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
