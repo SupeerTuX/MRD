@@ -198,7 +198,6 @@ public class ReporteActivity extends AppCompatActivity {
                     uriImage = Uri.parse(currentPhotoPath);
                     ibtnLado2.setImageURI(uriImage);
                     break;
-                    //TODO Terminar de llenar el switch y probar
             }
         }
     }

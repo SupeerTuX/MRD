@@ -47,7 +47,7 @@ public class InteriorData implements Serializable {
     public boolean Validar(){
 
         if (this.getLlantasMarca() == null || this.getLlantasMarca().isEmpty() ) return false;
-        else if (this.getLlantasCantidad() == null || this.getLlantasCantidad().isEmpty() ) return false;
+        else if (this.getLlantasCantidad() == null || this.getLlantasCantidad().isEmpty()) return false;
         else if (this.getLlantasMedida() == null || this.getLlantasMedida().isEmpty() ) return false;
         else return true;
     }

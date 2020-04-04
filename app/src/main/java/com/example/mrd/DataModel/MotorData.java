@@ -57,7 +57,7 @@ public class MotorData implements Serializable {
         if(this.getMotorCarga() == null || this.getMotorCarga().isEmpty()) return false;
         else if(this.getMotorObservaciones() == null || this.getMotorObservaciones().isEmpty()) return false;
         else if(this.getMarcaBateria() == null || this.getMarcaBateria().isEmpty()) return false;
-        else if(this.getMedidorGasolina() == null || this.getMedidorGasolina().isEmpty()) return false;
+        else if(this.getMedidorGasolina() == null || this.getMedidorGasolina().isEmpty() ) return false;
         else return true;
 
     }

@@ -11,22 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="FOLIO"
+        android:layout_marginTop="16dp"
+        android:text="Corralon"
         android:textColor="@color/colorMarkText"
         android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editTextFolio"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextFolio"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -50,10 +39,9 @@
         android:layout_width="41dp"
         android:layout_height="42dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:src="@android:drawable/ic_menu_my_calendar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextFolio" />
+        app:layout_constraintBottom_toBottomOf="@+id/editTextDate"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editTextDate"
@@ -62,38 +50,36 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Fecha"
         android:enabled="true"
+        android:hint="Fecha"
         android:inputType="date"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/imageButtonDate"
-        app:layout_constraintTop_toBottomOf="@+id/editTextFolio" />
+        app:layout_constraintTop_toBottomOf="@+id/textView67" />
 
     <ImageButton
         android:id="@+id/imageButtonTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:src="@android:drawable/presence_away"
-        app:layout_constraintStart_toEndOf="@+id/editTextDate"
-        app:layout_constraintTop_toBottomOf="@+id/editTextFolio" />
+        app:layout_constraintBottom_toBottomOf="@+id/editTextDate"
+        app:layout_constraintStart_toEndOf="@+id/editTextDate" />
 
     <EditText
         android:id="@+id/editTextTime"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
-        android:hint="Hora"
         android:enabled="true"
+        android:hint="Hora"
         android:inputType="time"
         android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editTextDate"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButtonTime"
-        app:layout_constraintTop_toBottomOf="@+id/editTextFolio" />
+        app:layout_constraintStart_toEndOf="@+id/imageButtonTime" />
 
     <TextView
         android:id="@+id/textViewInventario"
@@ -310,5 +296,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextDate"
         app:srcCompat="@android:drawable/ic_menu_mylocation" />
+
+    <Spinner
+        android:id="@+id/spinnerCorralon"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView67"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView67"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="A que corralon sera llevada la unidad"
+        android:textAlignment="center"
+        android:textColor="#FF6E40"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/spinnerCorralon"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

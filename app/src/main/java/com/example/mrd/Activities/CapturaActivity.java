@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
@@ -18,21 +19,30 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mrd.DataModel.ClienteData;
 import com.example.mrd.DataModel.ExteriorData;
 import com.example.mrd.DataModel.InteriorData;
-import com.example.mrd.DataModel.FormularioModel;
 import com.example.mrd.DataModel.MotorData;
+import com.example.mrd.DataModel.ReportModel;
+import com.example.mrd.DataModel.ResponseModel;
+import com.example.mrd.Network.GetAPI;
 import com.example.mrd.Network.NetworkClient;
+import com.example.mrd.Network.PostAPI;
 import com.example.mrd.Network.UploadAPI;
 import com.example.mrd.R;
+import com.example.mrd.Utilidades.FillReporte;
+import com.example.mrd.Utilidades.HttpCODES;
 import com.example.mrd.Utilidades.PrintBitmap;
 import com.example.mrd.Utilidades.StringUtils;
 
+import org.w3c.dom.Text;
+
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -43,10 +53,12 @@ import java.util.UUID;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.http.HTTP;
 
 public class CapturaActivity extends AppCompatActivity {
 
@@ -67,6 +79,7 @@ public class CapturaActivity extends AppCompatActivity {
     ExteriorData exteriorData = null;
     InteriorData interiorData = null;
     MotorData motorData = null;
+    ReportModel reportModel = null;
 
     int[] ResultadoFormulario;
     ArrayList<String> ticketText;
@@ -79,6 +92,7 @@ public class CapturaActivity extends AppCompatActivity {
     private Button btnInterior;
     private Button btnMotor;
     private Button btnReporteFotografico;
+    private Button btnGetFolio;
 
     private ImageView imgClienteOK;
     private ImageView imgExteriorOK;
@@ -103,6 +117,7 @@ public class CapturaActivity extends AppCompatActivity {
     private TextView tvBT;
     private TextView tvPrint;
     private TextView tvUpload;
+    private TextView tvTitulo;
             
 
     // identificador unico default
@@ -112,7 +127,9 @@ public class CapturaActivity extends AppCompatActivity {
     private OutputStream outputStream;
     private InputStream inputStream;
 
-
+    /**########################################################
+     * + Funcion: Resultado de las Activitis
+     #########################################################*/
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -173,6 +190,7 @@ public class CapturaActivity extends AppCompatActivity {
                 ResultadoFormulario[3] = resultCode;
                 //Verificar boton de impresora
                 VerificarFormulario();
+
             }
         }
         //Bluetooth Sincronizacion
@@ -203,7 +221,11 @@ public class CapturaActivity extends AppCompatActivity {
                                 public void run() {
                                     tvBT.setText(nombreDispositivo + " conectada");
                                     Toast.makeText(CapturaActivity.this, "Dispositivo Conectado", Toast.LENGTH_SHORT).show();
+                                    //Cambiamos la imagen del boton BT
                                     ibtnSincronizar.setImageDrawable(getResources().getDrawable(R.drawable.bt_on100));
+                                    //Cambiamos el texto del tv imprimir
+                                    tvPrint.setText("Impresora List");
+
                                 }
                             });
 
@@ -248,18 +270,29 @@ public class CapturaActivity extends AppCompatActivity {
             if (data != null){
                 Bundle extras = data.getExtras();
                 rutasImg = extras.getStringArrayList("reporte");
+                //Mostramos icono reporte OK
                 imgReporteOK.setVisibility(View.VISIBLE);
-                ibtnUpload.setEnabled(true);
+                //Deshabilitamos el boton Reporte fotografico
+                btnReporteFotografico.setEnabled(false);
+                //Guardamos el resultado de la activyty
+                ResultadoFormulario[4] = resultCode;
+                //Habilitamoe el boton de edicion
+                ibtnReporteEdit.setVisibility(View.VISIBLE);
+                //Verificar boton de impresora
+                VerificarFormulario();
             }
         }
     }
 
+    /**########################################################
+     * + Metodo onCreate
+     #########################################################*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_captura);
 
-        ResultadoFormulario = new int[4];
+        ResultadoFormulario = new int[5];
 
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
@@ -270,6 +303,7 @@ public class CapturaActivity extends AppCompatActivity {
         imgClienteOK = findViewById(R.id.imageViewClienteOK);
         ibClienteEdit = findViewById(R.id.imageButtonClienteEdit);
         btnReporteFotografico = findViewById(R.id.buttonReporteF);
+        btnGetFolio = findViewById(R.id.buttonFolio);
 
         ibtnPrint = findViewById(R.id.imageButtonPrint);
         ibtnSincronizar = findViewById(R.id.imageButtonBT);
@@ -290,6 +324,8 @@ public class CapturaActivity extends AppCompatActivity {
         tvBT = findViewById(R.id.textViewBT);
         tvPrint = findViewById(R.id.textViewPrint);
         tvUpload = findViewById(R.id.textViewUpload);
+        tvTitulo = findViewById(R.id.textViewTitulo);
+
 
         ibtnPrint.setEnabled(false);
         ibtnUpload.setEnabled(false);
@@ -330,7 +366,7 @@ public class CapturaActivity extends AppCompatActivity {
                 startActivityForResult(intent, CODE_MOTOR);
             }
         });
-
+        //Evento Repprte Fotografico
         btnReporteFotografico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -423,14 +459,29 @@ public class CapturaActivity extends AppCompatActivity {
         ibtnUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO Subir Reporte Texto
-                //Subir Reporte fotografico
-                uploadToServer(rutasImg.get(0));
+                //Uploadd Reporte
+                //LLenamos el reporte
+                reportModel = new ReportModel();
+                FillReporte fillReporte =  new FillReporte(clienteData, reportModel, exteriorData, interiorData, motorData);
+                reportModel = fillReporte.fill();
+                //Subimos el reporte por POST al servidor
+                postReporte();
+            }
+        });
+
+        //Boton para generar Folio
+        btnGetFolio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                generarFolio();
             }
         });
 
     }
 
+    /**########################################################
+     * + Funcion: Cierra la conexion BT
+     #########################################################*/
     private void cerrarConexion() {
         try {
             if (bluetoothSocket != null) {
@@ -446,6 +497,9 @@ public class CapturaActivity extends AppCompatActivity {
 
     }
 
+    /**########################################################
+     * + Funcion: Habilita los botones de edicion de formulario
+     #########################################################*/
     private void editModule(final int CODE) {
         new AlertDialog.Builder(CapturaActivity.this)
                 .setIcon(R.drawable.edit_icon)
@@ -460,24 +514,38 @@ public class CapturaActivity extends AppCompatActivity {
                         switch (CODE) {
                             case CODE_CLIENTE:
                                 btnCliente.setEnabled(true);
+                                imgClienteOK.setVisibility(View.INVISIBLE);
+                                ibClienteEdit.setVisibility(View.INVISIBLE);
                                 break;
                             case CODE_EXTERIOR:
                                 btnExterior.setEnabled(true);
+                                imgExteriorOK.setVisibility(View.INVISIBLE);
+                                ibExteriorEdit.setVisibility(View.INVISIBLE);
                                 break;
                             case CODE_INTERIOR:
                                 btnInterior.setEnabled(true);
+                                imgInteriorOK.setVisibility(View.INVISIBLE);
+                                ibInteriorEdit.setVisibility(View.INVISIBLE);
                                 break;
                             case CODE_MOTOR:
                                 btnMotor.setEnabled(true);
+                                imgMotorOK.setVisibility(View.INVISIBLE);
+                                ibMotorEdit.setVisibility(View.INVISIBLE);
                                 break;
                             case CODE_REPORTE:
                                 btnReporteFotografico.setEnabled(true);
+                                imgReporteOK.setVisibility(View.INVISIBLE);
+                                ibtnReporteEdit.setVisibility(View.INVISIBLE);
                                 break;
                         }
                     }
                 }).show();
     }
 
+    /**########################################################
+     * + Funcion: Tranforma texto en bytes para ser enviado
+     * + a la impresora
+     #########################################################*/
     /**
      * (font:A font:B)
      *
@@ -526,7 +594,9 @@ public class CapturaActivity extends AppCompatActivity {
         super.onDestroy();
         cerrarConexion();
     }
-
+    /**########################################################
+     * + Funcion: Inicializacion de la impresora
+     #########################################################*/
     public void  printTextInit() {
         try {
             // Para que acepte caracteres espciales
@@ -543,6 +613,9 @@ public class CapturaActivity extends AppCompatActivity {
 
     }
 
+    /**########################################################
+     * + Funcion: Primitiva que imprime una sola linea de texto
+     #########################################################*/
     public void printText(String texto, int negrita, int fuente, int ancho, int alto) {
         try {
             outputStream.write(getByteString(texto, negrita, fuente, ancho, alto));
@@ -556,6 +629,9 @@ public class CapturaActivity extends AppCompatActivity {
 
     }
 
+    /**########################################################
+     * + Funcion: Imprime el logo del ticket
+     #########################################################*/
     public void printLogo(Bitmap bitmap){
         try {
             outputStream.write(PrintBitmap.POS_PrintBMP(bitmap, ANCHO_IMG_58_MM, MODE_PRINT_IMG));
@@ -566,6 +642,10 @@ public class CapturaActivity extends AppCompatActivity {
         }
     }
 
+    /**########################################################
+     * + Funcion: Verifica si todos los formularios han sido
+     * + llenados
+     #########################################################*/
     private void  VerificarFormulario(){
         //Verificar si todas los formularios esta llenos
         for (int i = 0; i < ResultadoFormulario.length; i++){
@@ -573,38 +653,218 @@ public class CapturaActivity extends AppCompatActivity {
                 return;
             }
         }
-        //Habilitar impresion
-        habilitarImpresion();
+        //Se han llenado todos los formularios, se procede a generar el folio del servidor tomando en cuenta el corralon
+        //Verificamos si ya existe un folio
+        if (clienteData.getFolio() == null || clienteData.getFolio().isEmpty()){
+            generarFolio();
+        }else{
+            //Habilitar impresion
+            habilitarImpresion();
+            //habilitamos el boton upload
+            ibtnUpload.setEnabled(true);
+        }
+
+
     }
 
+
+    /**########################################################
+     * + Funcion: Carga las imagenes capturadas al servidor
+     #########################################################*/
     private void habilitarImpresion(){
         ibtnPrint.setEnabled(true);
         ibtnPrint.setImageDrawable(getResources().getDrawable(R.drawable.impresora_icon));
     }
 
-
-    private void uploadToServer(String filePath) {
-        Retrofit retrofit = NetworkClient.getRetrofitClient(this);
+    /**########################################################
+     * + Funcion: Carga las imagenes capturadas al servidor
+     #########################################################*/
+    private void uploadToServer() {
+        Retrofit retrofit = NetworkClient.getRetrofitClientUpload(this);
         UploadAPI uploadAPI = retrofit.create(UploadAPI.class);
-        //Create a file object using file path
-        File file = new File(filePath);
-        // Create a request body with file and image media type
-        RequestBody fileReqBody = RequestBody.create(MediaType.parse("image/*"), file);
-        // Create MultipartBody.Part using file request-body,file name and part name
-        MultipartBody.Part part = MultipartBody.Part.createFormData("example1", file.getName(), fileReqBody);
-        //Create request body with text description and text media type
-        RequestBody description = RequestBody.create(MediaType.parse("text/plain"), "image-type");
-        //
-        Call call = uploadAPI.uploadImage(part, description);
-        call.enqueue(new Callback() {
+        //Escalamos las imagenes capturadas para enviarlas al servidor
+        scaleBitmap();
+        File file1 = new File(rutasImg.get(0));
+        File file2 = new File(rutasImg.get(1));
+        File file3 = new File(rutasImg.get(2));
+        File file4 = new File(rutasImg.get(3));
+
+        MultipartBody.Builder builder = new MultipartBody.Builder();
+        builder.setType(MultipartBody.FORM);
+        builder.addFormDataPart("example2[]", file1.getName(), RequestBody.create(MediaType.parse("image/*"), file1 ));
+        builder.addFormDataPart("example2[]", file2.getName(), RequestBody.create(MediaType.parse("image/*"), file2 ));
+        builder.addFormDataPart("example2[]", file3.getName(), RequestBody.create(MediaType.parse("image/*"), file3 ));
+        builder.addFormDataPart("example2[]", file4.getName(), RequestBody.create(MediaType.parse("image/*"), file4 ));
+
+        MultipartBody requestBody =  builder.build();
+
+        Call<ResponseBody> call = uploadAPI.uploadImage(requestBody, clienteData.getFolio(), clienteData.getRegion().toLowerCase());
+        call.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call call, Response response) {
-                Toast.makeText(CapturaActivity.this, "Upload OK", Toast.LENGTH_SHORT).show();
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if(response.code()== HttpCODES.CREATED){
+                    Toast.makeText(CapturaActivity.this, "Fotos enviadas correctamente", Toast.LENGTH_SHORT).show();
+                    //Desactivando los botonoes para editar los reportes
+                    ibClienteEdit.setEnabled(false);
+                    ibExteriorEdit.setEnabled(false);
+                    ibInteriorEdit.setEnabled(false);
+                    ibMotorEdit.setEnabled(false);
+                    ibtnReporteEdit.setEnabled(false);
+
+                    //Deshabilitamos el boton upload
+                    ibtnUpload.setEnabled(false);
+                }else {
+                    Toast.makeText(CapturaActivity.this, "Error al subir el reporte al servidor. Intentelo nuevamente", Toast.LENGTH_SHORT).show();
+                }
+                //TODO: Mostrar cuadros de dialogo en la operacion subir reporte
+                //TODO: Boton cerrar el programa
             }
             @Override
-            public void onFailure(Call call, Throwable t) {
-                Toast.makeText(CapturaActivity.this, "Upload Fail", Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(CapturaActivity.this, "Error al subir el reporte al servidor. Intentelo nuevamente", Toast.LENGTH_SHORT).show();
             }
         });
+
+    }
+
+
+    /**########################################################
+     * + Funcion: Carga el reporte por metodo POST
+     #########################################################*/
+    private void  postReporte(){
+        Retrofit retrofit = NetworkClient.getRetrofitClientPost(this);
+        PostAPI postAPI = retrofit.create(PostAPI.class);
+
+        Call<ResponseModel> postServiceCall =postAPI.postReporte(reportModel);
+
+        postServiceCall.enqueue(new Callback<ResponseModel>() {
+            @Override
+            public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+                ResponseModel responseModel = response.body();
+                if(response.code() == HttpCODES.CREATED ){
+                    Toast.makeText(CapturaActivity.this, "Reporte Creado", Toast.LENGTH_SHORT).show();
+                    uploadToServer();
+                }else {
+                    Toast.makeText(CapturaActivity.this, "Error al subir reporte" + responseModel.getMsg(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseModel> call, Throwable t) {
+                Toast.makeText(CapturaActivity.this, "Error subir reporte: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+    /**########################################################
+     * + Funcion: Genera Folio en la DB paar poder ingresar la
+     * + Informacion en la tabla
+     #########################################################*/
+    private void generarFolio(){
+        //TODO: Prevenir la creacion de folios dobles, al editar un formulario despues de la captura de datos.
+        final ProgressDialog progressDialog = new ProgressDialog(CapturaActivity.this);
+        progressDialog.setMessage("Validando Usuario"); // Setting Message
+        progressDialog.setTitle("Procesando"); // Setting Title
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
+        progressDialog.show(); // Display Progress Dialog
+        progressDialog.setCancelable(false);
+
+        new Thread(new Runnable() {
+            public void run() {
+                try {
+                    //Creamos el objeto retrofit
+                    final Retrofit retrofit = NetworkClient.getRetrofitClientPost(this);
+                    GetAPI getAPI = retrofit.create(GetAPI.class);
+                    Call<ResponseModel> getFolioCall = getAPI.getFolio(clienteData.getRegion());
+
+                    getFolioCall.enqueue(new Callback<ResponseModel>() {
+                        @Override
+                        public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+                            //Si el codigo de respuesta es 201 ok
+                            if (response.code() == HttpCODES.CREATED){
+                                //Recogemos la respuesta del servidor
+                                ResponseModel responseModel = response.body();
+                                clienteData.setFolio(responseModel.getMsg());
+                                //Cambiamos el titulo por el folio y region
+                                tvTitulo.setText(clienteData.getFolio() + " " + clienteData.getRegion());
+                                //Cambiamos la imagen del botono upload
+                                ibtnUpload.setImageDrawable(getResources().getDrawable(R.drawable.upload_on));
+                                //Habilitar impresion
+                                habilitarImpresion();
+                                //habilitamos el boton upload
+                                ibtnUpload.setEnabled(true);
+                                //Deshabilitamose el boton
+                                enableDisableBtnGetFolio(false);
+                                progressDialog.dismiss();
+                                Toast.makeText(CapturaActivity.this, "Folio Generado Correctamente", Toast.LENGTH_SHORT).show();
+                            }
+                            else {
+                                progressDialog.dismiss();
+                                enableDisableBtnGetFolio(true);
+                                Toast.makeText(CapturaActivity.this, "Error al generar Folio, intentelo de nuevo", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseModel> call, Throwable t) {
+                            progressDialog.dismiss();
+                            enableDisableBtnGetFolio(true);
+                            Toast.makeText(CapturaActivity.this, "Error al generar Folio, Tiene conexion a Internet??", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                    Thread.sleep(60000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                progressDialog.dismiss();
+            }
+        }).start();
+    }
+
+
+    /**########################################################
+     * + Funcion: Baja la calidad de las fotos tomadas por la
+     * + camara para ser subidas al servidor
+     #########################################################*/
+    private void scaleBitmap(){
+        OutputStream outStream = null;
+        //File file = new File(rutasImg.get(0));
+
+        ArrayList<File> files = new ArrayList<>();
+
+        int m_inSampleSize = 0;
+        int m_compress = 70;
+
+        try {
+            BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+            bmOptions.inPurgeable = true;
+            bmOptions.inSampleSize = m_inSampleSize;
+
+            for (int i = 0; i < rutasImg.size(); i++){
+                //Creamos la lista de files
+                files.add(new File(rutasImg.get(i)));
+                //Comprimimos las imagenes del array rutasImg
+                Bitmap bitmap = BitmapFactory.decodeFile(rutasImg.get(i), bmOptions);
+                outStream = new FileOutputStream(files.get(i));
+                bitmap.compress(Bitmap.CompressFormat.JPEG, m_compress, outStream);
+                outStream.flush();
+                outStream.close();
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    private void enableDisableBtnGetFolio(boolean enable){
+        if (enable)
+        btnGetFolio.setVisibility(View.VISIBLE);
+        else
+            btnGetFolio.setVisibility(View.INVISIBLE);
     }
 }
