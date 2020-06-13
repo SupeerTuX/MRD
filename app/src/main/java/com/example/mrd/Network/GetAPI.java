@@ -7,7 +7,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface GetAPI {
-
     @GET("folio/{region}")
     Call<ResponseModel> getFolio(@Path("region") String region);
 }

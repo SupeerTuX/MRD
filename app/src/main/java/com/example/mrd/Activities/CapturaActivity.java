@@ -465,7 +465,8 @@ public class CapturaActivity extends AppCompatActivity {
                 FillReporte fillReporte =  new FillReporte(clienteData, reportModel, exteriorData, interiorData, motorData);
                 reportModel = fillReporte.fill();
                 //Subimos el reporte por POST al servidor
-                postReporte();
+                //postReporte();
+                uploadReporte();
             }
         });
 
@@ -513,26 +514,36 @@ public class CapturaActivity extends AppCompatActivity {
                         //finish(); Si solo quiere mandar la aplicación a segundo plano
                         switch (CODE) {
                             case CODE_CLIENTE:
+                                enableDisableUpload(false);
+                                enableDisableImpresion(false);
                                 btnCliente.setEnabled(true);
                                 imgClienteOK.setVisibility(View.INVISIBLE);
                                 ibClienteEdit.setVisibility(View.INVISIBLE);
                                 break;
                             case CODE_EXTERIOR:
+                                enableDisableUpload(false);
+                                enableDisableImpresion(false);
                                 btnExterior.setEnabled(true);
                                 imgExteriorOK.setVisibility(View.INVISIBLE);
                                 ibExteriorEdit.setVisibility(View.INVISIBLE);
                                 break;
                             case CODE_INTERIOR:
+                                enableDisableUpload(false);
+                                enableDisableImpresion(false);
                                 btnInterior.setEnabled(true);
                                 imgInteriorOK.setVisibility(View.INVISIBLE);
                                 ibInteriorEdit.setVisibility(View.INVISIBLE);
                                 break;
                             case CODE_MOTOR:
+                                enableDisableUpload(false);
+                                enableDisableImpresion(false);
                                 btnMotor.setEnabled(true);
                                 imgMotorOK.setVisibility(View.INVISIBLE);
                                 ibMotorEdit.setVisibility(View.INVISIBLE);
                                 break;
                             case CODE_REPORTE:
+                                enableDisableUpload(false);
+                                enableDisableImpresion(false);
                                 btnReporteFotografico.setEnabled(true);
                                 imgReporteOK.setVisibility(View.INVISIBLE);
                                 ibtnReporteEdit.setVisibility(View.INVISIBLE);
@@ -541,6 +552,7 @@ public class CapturaActivity extends AppCompatActivity {
                     }
                 }).show();
     }
+
 
     /**########################################################
      * + Funcion: Tranforma texto en bytes para ser enviado
@@ -659,12 +671,10 @@ public class CapturaActivity extends AppCompatActivity {
             generarFolio();
         }else{
             //Habilitar impresion
-            habilitarImpresion();
+            enableDisableImpresion(true);
             //habilitamos el boton upload
-            ibtnUpload.setEnabled(true);
+            enableDisableUpload(true);
         }
-
-
     }
 
 
@@ -698,7 +708,7 @@ public class CapturaActivity extends AppCompatActivity {
 
         MultipartBody requestBody =  builder.build();
 
-        Call<ResponseBody> call = uploadAPI.uploadImage(requestBody, clienteData.getFolio(), clienteData.getRegion().toLowerCase());
+        Call<ResponseBody> call = uploadAPI.uploadImage(requestBody, reportModel.getFolio(), reportModel.getRegion());
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -716,8 +726,6 @@ public class CapturaActivity extends AppCompatActivity {
                 }else {
                     Toast.makeText(CapturaActivity.this, "Error al subir el reporte al servidor. Intentelo nuevamente", Toast.LENGTH_SHORT).show();
                 }
-                //TODO: Mostrar cuadros de dialogo en la operacion subir reporte
-                //TODO: Boton cerrar el programa
             }
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
@@ -734,7 +742,6 @@ public class CapturaActivity extends AppCompatActivity {
     private void  postReporte(){
         Retrofit retrofit = NetworkClient.getRetrofitClientPost(this);
         PostAPI postAPI = retrofit.create(PostAPI.class);
-
         Call<ResponseModel> postServiceCall =postAPI.postReporte(reportModel);
 
         postServiceCall.enqueue(new Callback<ResponseModel>() {
@@ -748,7 +755,6 @@ public class CapturaActivity extends AppCompatActivity {
                     Toast.makeText(CapturaActivity.this, "Error al subir reporte" + responseModel.getMsg(), Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call<ResponseModel> call, Throwable t) {
                 Toast.makeText(CapturaActivity.this, "Error subir reporte: " + t.getMessage(), Toast.LENGTH_SHORT).show();
@@ -762,7 +768,6 @@ public class CapturaActivity extends AppCompatActivity {
      * + Informacion en la tabla
      #########################################################*/
     private void generarFolio(){
-        //TODO: Prevenir la creacion de folios dobles, al editar un formulario despues de la captura de datos.
         final ProgressDialog progressDialog = new ProgressDialog(CapturaActivity.this);
         progressDialog.setMessage("Validando Usuario"); // Setting Message
         progressDialog.setTitle("Procesando"); // Setting Title
@@ -805,12 +810,126 @@ public class CapturaActivity extends AppCompatActivity {
                                 Toast.makeText(CapturaActivity.this, "Error al generar Folio, intentelo de nuevo", Toast.LENGTH_SHORT).show();
                             }
                         }
-
                         @Override
                         public void onFailure(Call<ResponseModel> call, Throwable t) {
                             progressDialog.dismiss();
                             enableDisableBtnGetFolio(true);
                             Toast.makeText(CapturaActivity.this, "Error al generar Folio, Tiene conexion a Internet??", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    Thread.sleep(60000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                progressDialog.dismiss();
+            }
+        }).start();
+    }
+
+
+    /**########################################################
+     * + Funcion: Sube el reporte en 2 partes, sube el archivo
+     * + Json y si es exitosa sube las imagenes
+     #########################################################*/
+    private void uploadReporte(){
+        final ProgressDialog progressDialog = new ProgressDialog(CapturaActivity.this);
+        progressDialog.setMessage("Subiendo Reporte"); // Setting Message
+        progressDialog.setTitle("Cargando"); // Setting Title
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
+        progressDialog.show(); // Display Progress Dialog
+        progressDialog.setCancelable(false);
+        final boolean[] postOK = {false};
+
+        new Thread(new Runnable() {
+            public void run() {
+                try {
+                    Retrofit retrofit = NetworkClient.getRetrofitClientPost(this);
+                    PostAPI postAPI = retrofit.create(PostAPI.class);
+                    Call<ResponseModel> postServiceCall =postAPI.postReporte(reportModel);
+                    postServiceCall.enqueue(new Callback<ResponseModel>() {
+                        @Override
+                        public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+                            ResponseModel responseModel = response.body();
+                            if(response.code() == HttpCODES.CREATED ){
+                                postOK[0] = true;
+                                Toast.makeText(CapturaActivity.this, "Reporte Creado", Toast.LENGTH_SHORT).show();
+                                progressDialog.dismiss();
+                            }else {
+                                String msg = "Null response";
+                                if(responseModel != null)
+                                    msg =  responseModel.getMsg();
+                                Toast.makeText(CapturaActivity.this, "Error al subir reporte" + msg, Toast.LENGTH_SHORT).show();
+                                progressDialog.dismiss();
+                            }
+                        }
+                        @Override
+                        public void onFailure(Call<ResponseModel> call, Throwable t) {
+                            Toast.makeText(CapturaActivity.this, "Error subir reporte: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                            progressDialog.dismiss();
+                        }
+                    });
+                    Thread.sleep(60000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                progressDialog.dismiss();
+            }
+        }).start();
+
+        if (postOK[0]){
+            return;
+        }
+
+        progressDialog.setMessage("Subiendo Fotos"); // Setting Message
+        progressDialog.setTitle("Cargando"); // Setting Title
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
+        progressDialog.show(); // Display Progress Dialog
+        progressDialog.setCancelable(false);
+
+        new Thread(new Runnable() {
+            public void run() {
+                try {
+
+                    Retrofit retrofit = NetworkClient.getRetrofitClientUpload(this);
+                    UploadAPI uploadAPI = retrofit.create(UploadAPI.class);
+                    //Escalamos las imagenes capturadas para enviarlas al servidor
+                    scaleBitmap();
+                    File file1 = new File(rutasImg.get(0));
+                    File file2 = new File(rutasImg.get(1));
+                    File file3 = new File(rutasImg.get(2));
+                    File file4 = new File(rutasImg.get(3));
+
+                    MultipartBody.Builder builder = new MultipartBody.Builder();
+                    builder.setType(MultipartBody.FORM);
+                    builder.addFormDataPart("example2[]", file1.getName(), RequestBody.create(MediaType.parse("image/*"), file1 ));
+                    builder.addFormDataPart("example2[]", file2.getName(), RequestBody.create(MediaType.parse("image/*"), file2 ));
+                    builder.addFormDataPart("example2[]", file3.getName(), RequestBody.create(MediaType.parse("image/*"), file3 ));
+                    builder.addFormDataPart("example2[]", file4.getName(), RequestBody.create(MediaType.parse("image/*"), file4 ));
+
+                    MultipartBody requestBody =  builder.build();
+
+                    Call<ResponseBody> call = uploadAPI.uploadImage(requestBody, reportModel.getFolio(), reportModel.getRegion());
+                    call.enqueue(new Callback<ResponseBody>() {
+                        @Override
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            if(response.code()== HttpCODES.CREATED){
+                                Toast.makeText(CapturaActivity.this, "Fotos enviadas correctamente", Toast.LENGTH_SHORT).show();
+                                //Desactivando los botonoes para editar los reportes
+                                ibClienteEdit.setEnabled(false);
+                                ibExteriorEdit.setEnabled(false);
+                                ibInteriorEdit.setEnabled(false);
+                                ibMotorEdit.setEnabled(false);
+                                ibtnReporteEdit.setEnabled(false);
+
+                                //Deshabilitamos el boton upload
+                                ibtnUpload.setEnabled(false);
+                            }else {
+                                Toast.makeText(CapturaActivity.this, "Error al subir el reporte al servidor. Intentelo nuevamente", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        @Override
+                        public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            Toast.makeText(CapturaActivity.this, "Error al subir el reporte al servidor. Intentelo nuevamente", Toast.LENGTH_SHORT).show();
                         }
                     });
 
@@ -821,6 +940,7 @@ public class CapturaActivity extends AppCompatActivity {
                 progressDialog.dismiss();
             }
         }).start();
+
     }
 
 
@@ -853,18 +973,68 @@ public class CapturaActivity extends AppCompatActivity {
                 outStream.close();
             }
 
-
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+    }
+
+
+    /**########################################################
+     * + Funcion: Previene el funcionamiento del boton back
+     * + para salir de la activity y perder lainformacion
+     #########################################################*/
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(CapturaActivity.this)
+                .setIcon(R.drawable.edit_icon)
+                .setTitle("¿Desea salir de la captura de datos?")
+                .setMessage("Se perdera la informacion que no se ha enviado")
+                .setCancelable(false)
+                .setNegativeButton(android.R.string.cancel, null)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {// un listener que al pulsar, cierre la aplicacion
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //android.os.Process.killProcess(android.os.Process.myPid()); //Su funcion es algo similar a lo que se llama cuando se presiona el botón "Forzar Detención" o "Administrar aplicaciones", lo cuál mata la aplicación
+                        finish(); //Si solo quiere mandar la aplicación a segundo plano
+                    }
+                }).show();
 
     }
 
+
+    /**########################################################
+     * + Funcion: Habilita o deshabilita el boton para generar
+     * + folio de manera manual
+     #########################################################*/
     private void enableDisableBtnGetFolio(boolean enable){
         if (enable)
         btnGetFolio.setVisibility(View.VISIBLE);
         else
             btnGetFolio.setVisibility(View.INVISIBLE);
     }
+
+
+    private void enableDisableUpload(boolean enable){
+
+        if(enable){
+            ibtnUpload.setEnabled(true);
+            ibtnUpload.setImageDrawable(getResources().getDrawable(R.drawable.upload_on));
+        }else{
+            ibtnUpload.setEnabled(false);
+            ibtnUpload.setImageDrawable(getResources().getDrawable(R.drawable.upload_off));
+        }
+    }
+
+    private void enableDisableImpresion(boolean enable){
+        if(enable){
+            ibtnPrint.setEnabled(true);
+            ibtnPrint.setImageDrawable(getResources().getDrawable(R.drawable.impresora_icon));
+        }else{
+            ibtnPrint.setEnabled(false);
+            ibtnPrint.setImageDrawable(getResources().getDrawable(R.drawable.impresora_icon_bn));
+        }
+    }
 }
+
+//TODO Al editar un modulo se debe deshabilitar el boton upload  y  la impresion, volverlo a habilitar en despues de la verificacion de los modulos

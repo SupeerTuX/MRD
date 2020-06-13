@@ -25,6 +25,11 @@ public class FillReporte {
 
     public ReportModel fill(){
         //Cliente Data
+        String _region = this.clienteData.getRegion();
+        if(_region.equals("Poza Rica")){
+            this.clienteData.setRegion("poza_rica");
+        }
+
         this.reportModel.setRegion(this.clienteData.getRegion().toLowerCase());
         this.reportModel.setFolio(this.clienteData.getFolio());
         this.reportModel.setFecha(this.clienteData.getDateDB());
