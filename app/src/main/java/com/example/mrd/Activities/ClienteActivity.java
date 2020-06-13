@@ -32,11 +32,12 @@ public class ClienteActivity extends AppCompatActivity {
     private ImageButton ibtnTime;
     private ImageButton ibtnGPS;
 
-    private EditText etFolio;
+
     private EditText etDate;
     private EditText etTime;
     private EditText etDireccion;
     private Spinner spinnerInventario;
+    private Spinner spinnerCorralon;
     private EditText etVehiculoMarca;
     private EditText etVehiculoTipo;
     private EditText etVehiculoModelo;
@@ -50,11 +51,15 @@ public class ClienteActivity extends AppCompatActivity {
     private EditText etOperadorClave;
     private EditText etAutoridad;
 
+    private  String dbDate;
+    private  String dbTime;
+
 
 
     //Variables para el calendario
     private static final String CERO = "0";
     private static final String BARRA = "/";
+    private static final String GUION = "-";
     private static final String DOS_PUNTOS = ":";
     private static final int CODE_GPS = 11;
 
@@ -82,11 +87,11 @@ public class ClienteActivity extends AppCompatActivity {
         ibtnTime = findViewById(R.id.imageButtonTime);
         ibtnGPS =findViewById(R.id.imageButtonGps);
 
-        etFolio = findViewById(R.id.editTextFolio);
         etDate = findViewById(R.id.editTextDate);
         etTime = findViewById(R.id.editTextTime);
         etDireccion = findViewById(R.id.editTextDireccion);
         spinnerInventario = findViewById(R.id.spinnerInventario);
+        spinnerCorralon = findViewById(R.id.spinnerCorralon);
         etVehiculoMarca = findViewById(R.id.editTextVehiculoMarca);
         etVehiculoTipo = findViewById(R.id.editTextVehiculoTipo);
         etVehiculoModelo = findViewById(R.id.editTextVehiculoModelo);
@@ -102,9 +107,13 @@ public class ClienteActivity extends AppCompatActivity {
         etAutoridad = findViewById(R.id.editTextAutoridad);
 
 
-        ArrayAdapter<CharSequence> adapter =  ArrayAdapter.createFromResource(ClienteActivity.this, R.array.inventario_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerInventario.setAdapter(adapter);
+        ArrayAdapter<CharSequence> adapterInventario =  ArrayAdapter.createFromResource(ClienteActivity.this, R.array.inventario_array, android.R.layout.simple_spinner_item);
+        adapterInventario.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerInventario.setAdapter(adapterInventario);
+
+        ArrayAdapter<CharSequence> adapterCorralon =  ArrayAdapter.createFromResource(ClienteActivity.this, R.array.corralon_array, android.R.layout.simple_spinner_item);
+        adapterCorralon.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCorralon.setAdapter(adapterCorralon);
 
 
         //Evento boton validar
@@ -114,7 +123,9 @@ public class ClienteActivity extends AppCompatActivity {
                 //Validar datos del formulario
                 ClienteData clienteData = new ClienteData();
 
-                clienteData.setFolio(etFolio.getText().toString());
+                //clienteData.setFolio(etFolio.getText().toString());
+                clienteData.setRegion(spinnerCorralon.getSelectedItem().toString());
+                clienteData.setDateDB(dbDate + " " + dbTime);
                 clienteData.setDate(etDate.getText().toString());
                 clienteData.setTime(etTime.getText().toString());
                 clienteData.setDireccion(etDireccion.getText().toString());
@@ -190,6 +201,8 @@ public class ClienteActivity extends AppCompatActivity {
                 String mesFormateado = (mesActual < 10)? CERO + String.valueOf(mesActual):String.valueOf(mesActual);
                 //Muestro la fecha con el formato deseado
                 etDate.setText(diaFormateado + BARRA + mesFormateado + BARRA + year);
+                //Obtener formato de fecha para
+                dbDate =  year + GUION + mesFormateado + GUION + diaFormateado;
             }
             //Estos valores deben ir en ese orden, de lo contrario no mostrara la fecha actual
             /**
@@ -218,11 +231,12 @@ public class ClienteActivity extends AppCompatActivity {
                 }
                 //Muestro la hora con el formato deseado
                 etTime.setText(horaFormateada + DOS_PUNTOS + minutoFormateado + " " + AM_PM);
+                dbTime = horaFormateada + DOS_PUNTOS + minutoFormateado + DOS_PUNTOS + "00";
             }
             //Estos valores deben ir en ese orden
             //Al colocar en false se muestra en formato 12 horas y true en formato 24 horas
             //Pero el sistema devuelve la hora en formato 24 horas
-        }, hora, minuto, false);
+        }, hora, minuto, true);
 
         recogerHora.show();
     }

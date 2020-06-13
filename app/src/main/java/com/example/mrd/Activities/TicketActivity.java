@@ -28,25 +28,6 @@ public class TicketActivity extends AppCompatActivity {
     private static final int LIMITE_CARACTERES_POR_LINEA = 47;
 
     private static final int DEFENSA_DELANTERA = 26;
-    private static final int CARROCERIA = 27;
-    private static final int PARRILLA = 28;
-    private static final int FAROS = 29;
-    private static final int COFRE = 30;
-    private static final int PARABRISAS = 31;
-    private static final int LIMPIADORES = 32;
-    private static final int EMBLEMAS = 33;
-    private static final int PORTEZUELA_IZQ = 34;
-    private static final int CRISTAL_IZQ = 35;
-    private static final int MEDALLON = 36;
-    private static final int CAJUELA = 37;
-    private static final int DEFENSA_TRASERA = 38;
-    private static final int PORTEZUELA_DER = 39;
-    private static final int CRISTAL_DER = 40;
-    private static final int ANTENAS = 41;
-    private static final int ESPEJOS = 42;
-    private static final int TAPONES_RUEDAS = 43;
-    private static final int TAPON_GASOLINA = 44;
-    private static final int SALPICADERA_DER = 45;
     private static final int SALPICADERA_IZQ = 46;
 
 
@@ -721,21 +702,21 @@ public class TicketActivity extends AppCompatActivity {
 
         //tanque de gasolina
         // |--|--|--|--|
+        //rows.get(86).append(" " + motorData.getMedidorGasolina());
         rows.get(87).setText("E |--|--|--|--| F");
         int tanque =  Integer.parseInt(motorData.getMedidorGasolina());
 
+        rows.get(88).setText("E |");
 
-        for (int i = 0; i < 13; i++){
-            if(i == 0)
-                rows.get(88).setText("|");
+        for (int i = 1; i < 13; i++){
 
             if (tanque < i){
                 rows.get(88).append("#");
             }else{
                 rows.get(88).append("-");
             }
-
         }
+        rows.get(88).append(" F");
 
         //carga
 
@@ -777,8 +758,6 @@ public class TicketActivity extends AppCompatActivity {
             ticketStr.add(rows.get(i).getText().toString());
 
             if (rows.get(i).getText().toString().equals("_")){
-                ticketStr.add(" ");
-                ticketStr.add(" ");
                 ticketStr.add(" ");
                 ticketStr.add(" ");
             }

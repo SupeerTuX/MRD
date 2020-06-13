@@ -4,8 +4,10 @@ import java.io.Serializable;
 
 public class ClienteData implements Serializable {
 
+    private String region;
     private String folio;
     private String date;
+    private String dateDB;
     private String time;
     private String direccion;
     private String motivoInventario;
@@ -24,8 +26,16 @@ public class ClienteData implements Serializable {
     private String autoridad;
 
     public ClienteData() {
+        this.setFolio("");
     }
 
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
 
     public String getFolio() {
         return folio;
@@ -41,6 +51,14 @@ public class ClienteData implements Serializable {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getDateDB() {
+        return dateDB;
+    }
+
+    public void setDateDB(String dateDB) {
+        this.dateDB = dateDB;
     }
 
     public String getTime() {
@@ -172,8 +190,10 @@ public class ClienteData implements Serializable {
 
     //Metodo para verificar si alguna propiedad no ha sido asignada
     public boolean Validar(){
-        if (this.getFolio() == null || this.getFolio().isEmpty() ) return false;
+        //if (this.getFolio() == null || this.getFolio().isEmpty() ) return false;
+        if (this.getRegion() == null || this.getRegion().isEmpty() ) return false;
         else if (this.getDate() == null || this.getDate().isEmpty() ) return false;
+        else if (this.getDateDB() == null || this.getDateDB().isEmpty() ) return false;
         else if (this.getTime() == null || this.getTime().isEmpty()) return false;
         else if (this.getDireccion() == null || this.getDireccion().isEmpty()) return false;
         else if (this.getMotivoInventario() == null || this.getMotivoInventario().isEmpty()) return false;

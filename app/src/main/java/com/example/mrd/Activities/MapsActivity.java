@@ -77,29 +77,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         e.printStackTrace();
                     }
 
-                    String direccion =  address.get(0).getAddressLine(0);
-                    String city =  address.get(0).getLocality();
-                    String state =  address.get(0).getAdminArea();
-                    String country =  address.get(0).getCountryName();
-                    String postalCode =  address.get(0).getPostalCode();
+                    if (address.size() > 0){
+                        String direccion =  address.get(0).getAddressLine(0);
+                        String city =  address.get(0).getLocality();
+                        String state =  address.get(0).getAdminArea();
+                        String country =  address.get(0).getCountryName();
+                        String postalCode =  address.get(0).getPostalCode();
 
-                    //
-                    Toast.makeText(MapsActivity.this, "Guardando Direccion", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MapsActivity.this, MapsActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putString("direccion", direccion);
-                    intent.putExtras(bundle);
-                    setResult(Activity.RESULT_OK, intent);
-                    finish();
-                    /*
-                    Toast.makeText(MapsActivity.this, "Address: " + direccion + "\n" +
-                            "Ciudad: " + city + "\n" +
-                            "Estado: " + state + "\n" +
-                            "Country: " + country + "\n" +
-                            "Codigo Postal: " + postalCode + "\n"
-                            , Toast.LENGTH_LONG).show();
-                    */
-
+                        //
+                        Toast.makeText(MapsActivity.this, "Guardando Direccion", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MapsActivity.this, MapsActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("direccion", direccion);
+                        intent.putExtras(bundle);
+                        setResult(Activity.RESULT_OK, intent);
+                        finish();
+                    }
+                    else {
+                        Toast.makeText(MapsActivity.this, "No se ha podido capturar la direccion. Intentelo de nuevo", Toast.LENGTH_LONG).show();
+                    }
                 }
                 else {
                     Toast.makeText(MapsActivity.this, "Debe seleccionar su ubicacion", Toast.LENGTH_SHORT).show();

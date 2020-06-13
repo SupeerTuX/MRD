@@ -163,6 +163,17 @@
         <item>Solo Inventario</item>
     </string-array>
 
+    <string-array name="corralon_array">
+        <item>Coatepec</item>
+        <item>Cordoba</item>
+        <item>Coatzacoalcos</item>
+        <item>Minatitlan</item>
+        <item>Puebla</item>
+        <item>Poza Rica</item>
+        <item>Veracruz</item>
+        <item>Xalapa</item>
+    </string-array>
+
     <string-array name="estado_array">
         <item>Bien</item>
         <item>Mal</item>
