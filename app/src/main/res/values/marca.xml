@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="marca_array">
+        <item>ACURA</item>
+        <item>ALFA ROMEO</item>
+        <item>ASTON MARTIN</item>
+        <item>AUDI</item>
+        <item>AVIONES</item>
+        <item>BENTLEY</item>
+        <item>BMW</item>
+
+    </string-array>
+</resources>

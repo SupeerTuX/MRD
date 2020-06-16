@@ -118,6 +118,8 @@ public class CapturaActivity extends AppCompatActivity {
     private TextView tvPrint;
     private TextView tvUpload;
     private TextView tvTitulo;
+
+    private boolean uploadFail = false;
             
 
     // identificador unico default
@@ -840,41 +842,46 @@ public class CapturaActivity extends AppCompatActivity {
         progressDialog.setCancelable(false);
         final boolean[] postOK = {false};
 
-        new Thread(new Runnable() {
-            public void run() {
-                try {
-                    Retrofit retrofit = NetworkClient.getRetrofitClientPost(this);
-                    PostAPI postAPI = retrofit.create(PostAPI.class);
-                    Call<ResponseModel> postServiceCall =postAPI.postReporte(reportModel);
-                    postServiceCall.enqueue(new Callback<ResponseModel>() {
-                        @Override
-                        public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
-                            ResponseModel responseModel = response.body();
-                            if(response.code() == HttpCODES.CREATED ){
-                                postOK[0] = true;
-                                Toast.makeText(CapturaActivity.this, "Reporte Creado", Toast.LENGTH_SHORT).show();
-                                progressDialog.dismiss();
-                            }else {
-                                String msg = "Null response";
-                                if(responseModel != null)
-                                    msg =  responseModel.getMsg();
-                                Toast.makeText(CapturaActivity.this, "Error al subir reporte" + msg, Toast.LENGTH_SHORT).show();
+        //Si la carga de fotos fallo,uploadFail = false  se ejecuta la peticion post
+        //Si uploadFail = true, se salta el post y se va directo a subir las fotos
+        if(!uploadFail) {
+            new Thread(new Runnable() {
+                public void run() {
+                    try {
+                        Retrofit retrofit = NetworkClient.getRetrofitClientPost(this);
+                        PostAPI postAPI = retrofit.create(PostAPI.class);
+                        Call<ResponseModel> postServiceCall = postAPI.postReporte(reportModel);
+                        postServiceCall.enqueue(new Callback<ResponseModel>() {
+                            @Override
+                            public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+                                ResponseModel responseModel = response.body();
+                                if (response.code() == HttpCODES.CREATED) {
+                                    postOK[0] = true;
+                                    Toast.makeText(CapturaActivity.this, "Reporte Creado", Toast.LENGTH_SHORT).show();
+                                    progressDialog.dismiss();
+                                } else {
+                                    String msg = "Null response";
+                                    if (responseModel != null)
+                                        msg = responseModel.getMsg();
+                                    Toast.makeText(CapturaActivity.this, "Error al subir reporte" + msg, Toast.LENGTH_SHORT).show();
+                                    progressDialog.dismiss();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<ResponseModel> call, Throwable t) {
+                                Toast.makeText(CapturaActivity.this, "Error subir reporte: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                                 progressDialog.dismiss();
                             }
-                        }
-                        @Override
-                        public void onFailure(Call<ResponseModel> call, Throwable t) {
-                            Toast.makeText(CapturaActivity.this, "Error subir reporte: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                            progressDialog.dismiss();
-                        }
-                    });
-                    Thread.sleep(60000);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                        });
+                        Thread.sleep(60000);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    progressDialog.dismiss();
                 }
-                progressDialog.dismiss();
-            }
-        }).start();
+            }).start();
+        }
 
         if (postOK[0]){
             return;
@@ -889,7 +896,6 @@ public class CapturaActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             public void run() {
                 try {
-
                     Retrofit retrofit = NetworkClient.getRetrofitClientUpload(this);
                     UploadAPI uploadAPI = retrofit.create(UploadAPI.class);
                     //Escalamos las imagenes capturadas para enviarlas al servidor
@@ -920,16 +926,24 @@ public class CapturaActivity extends AppCompatActivity {
                                 ibInteriorEdit.setEnabled(false);
                                 ibMotorEdit.setEnabled(false);
                                 ibtnReporteEdit.setEnabled(false);
-
                                 //Deshabilitamos el boton upload
                                 ibtnUpload.setEnabled(false);
+                                //Peticion OK
+                                uploadFail = false;
+                                progressDialog.dismiss();
                             }else {
                                 Toast.makeText(CapturaActivity.this, "Error al subir el reporte al servidor. Intentelo nuevamente", Toast.LENGTH_SHORT).show();
+                                //La peticion ha fallado
+                                uploadFail = true;
+                                progressDialog.dismiss();
                             }
                         }
                         @Override
                         public void onFailure(Call<ResponseBody> call, Throwable t) {
                             Toast.makeText(CapturaActivity.this, "Error al subir el reporte al servidor. Intentelo nuevamente", Toast.LENGTH_SHORT).show();
+                            //La peticion ha fallado
+                            uploadFail = true;
+                            progressDialog.dismiss();
                         }
                     });
 
