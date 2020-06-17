@@ -8,6 +8,105 @@
         <item>AVIONES</item>
         <item>BENTLEY</item>
         <item>BMW</item>
-
+        <item>BORGWARD</item>
+        <item>BUICK</item>
+        <item>CADILLAC</item>
+        <item>CAMIONES</item>
+        <item>CARROS DE GOLF</item>
+        <item>CASAS RODANTES</item>
+        <item>CBO</item>
+        <item>CHEVROLET</item>
+        <item>CHRYSLER</item>
+        <item>CITRöEN</item>
+        <item>DFM SPARTAK</item>
+        <item>DINA</item>
+        <item>DODGE</item>
+        <item>ESPECIALES</item>
+        <item>FAW</item>
+        <item>FERRARI</item>
+        <item>FIAT</item>
+        <item>FORD</item>
+        <item>FREIGHTLINER</item>
+        <item>GIANT</item>
+        <item>GMC</item>
+        <item>GO KART / A. DE CARRERAS</item>
+        <item>HONDA</item>
+        <item>HUMMER</item>
+        <item>INFINITI</item>
+        <item>INTERNATIONAL</item>
+        <item>ISUZU</item>
+        <item>JAGUAR</item>
+        <item>JEEP</item>
+        <item>KENWORTH</item>
+        <item>LAMBORGHINI</item>
+        <item>LANCHAS</item>
+        <item>LANCIA</item>
+        <item>LAND ROVER</item>
+        <item>LINCOLN</item>
+        <item>LOTUS</item>
+        <item>MAQUINARIA</item>
+        <item>MASA</item>
+        <item>MASERATI</item>
+        <item>MAYBACH</item>
+        <item>MAZDA</item>
+        <item>MERCEDES BENZ</item>
+        <item>MERCURY</item>
+        <item>MG</item>
+        <item>MINI</item>
+        <item>MITSUBISHI</item>
+        <item>MONTACARGAS</item>
+        <item>NISSAN</item>
+        <item>OLDSMOBILE</item>
+        <item>OPEL</item>
+        <item>PEUGEOT</item>
+        <item>PIAGGIO</item>
+        <item>PONTIAC</item>
+        <item>PORSCHE</item>
+        <item>RAMBLER</item>
+        <item>REMOLQUES</item>
+        <item>RENAULT</item>
+        <item>ROLLS ROYCE</item>
+        <item>ROVER</item>
+        <item>SAAB</item>
+        <item>SATURN</item>
+        <item>SEAT</item>
+        <item>SHELBY</item>
+        <item>SMART</item>
+        <item>SSANGYONG MOTOR</item>
+        <item>SUBARU</item>
+        <item>SUNBEAM</item>
+        <item>SUZUKI</item>
+        <item>TOYOTA</item>
+        <item>VOLKSWAGEN</item>
+        <item>VOLVO</item>
+        <item>TESLA</item>
+        <item>HYUNDAI</item>
+        <item>SCANIA</item>
+        <item>MACK</item>
+        <item>DINAMO</item>
+        <item>BOBCAT</item>
+        <item>FOTON</item>
+        <item>RAM</item>
+        <item>FRUEHAUF</item>
+        <item>HINO</item>
+        <item>HINO</item>
+        <item>STERLING</item>
+        <item>STERLING</item>
+        <item>AUTOTRADER</item>
+        <item>IRIZAR</item>
+        <item>KIA</item>
+        <item>TORTON</item>
+        <item>TANQUE</item>
+        <item>VARIOS</item>
+        <item>CENTURY</item>
+        <item>STYLE</item>
+        <item>CARRITO</item>
+        <item>DUTSON</item>
+        <item>TRACTOR</item>
+        <item>TRIUMPH</item>
+        <item>IMPORTADO</item>
+        <item>BAIC</item>
+        <item>KODIAK</item>
+        <item>WAW</item>
     </string-array>
 </resources>

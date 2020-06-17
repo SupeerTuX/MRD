@@ -141,7 +141,7 @@ public class CapturaActivity extends AppCompatActivity {
                 Bundle objRecivido = data.getExtras();
                 clienteData = (ClienteData) objRecivido.getSerializable("cliente");
                 imgClienteOK.setVisibility(View.VISIBLE);
-                ibClienteEdit.setVisibility(View.VISIBLE);
+                //ibClienteEdit.setVisibility(View.VISIBLE);
                 //btnCliente.setVisibility(View.INVISIBLE);
                 btnCliente.setEnabled(false);
                 //Guardamos el resultado de la activyty

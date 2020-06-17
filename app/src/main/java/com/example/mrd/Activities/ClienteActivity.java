@@ -11,6 +11,7 @@ import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -38,7 +39,6 @@ public class ClienteActivity extends AppCompatActivity {
     private EditText etDireccion;
     private Spinner spinnerInventario;
     private Spinner spinnerCorralon;
-    private EditText etVehiculoMarca;
     private EditText etVehiculoTipo;
     private EditText etVehiculoModelo;
     private EditText etVehiculoColor;
@@ -50,6 +50,9 @@ public class ClienteActivity extends AppCompatActivity {
     private EditText etOperadorGrua;
     private EditText etOperadorClave;
     private EditText etAutoridad;
+    private AutoCompleteTextView acMarca;
+
+
 
     private  String dbDate;
     private  String dbTime;
@@ -92,7 +95,6 @@ public class ClienteActivity extends AppCompatActivity {
         etDireccion = findViewById(R.id.editTextDireccion);
         spinnerInventario = findViewById(R.id.spinnerInventario);
         spinnerCorralon = findViewById(R.id.spinnerCorralon);
-        etVehiculoMarca = findViewById(R.id.editTextVehiculoMarca);
         etVehiculoTipo = findViewById(R.id.editTextVehiculoTipo);
         etVehiculoModelo = findViewById(R.id.editTextVehiculoModelo);
         etVehiculoColor = findViewById(R.id.editTextVehiculoColor);
@@ -105,6 +107,15 @@ public class ClienteActivity extends AppCompatActivity {
         etOperadorGrua = findViewById(R.id.editTextGrua);
         etOperadorClave = findViewById(R.id.editTextClave);
         etAutoridad = findViewById(R.id.editTextAutoridad);
+        acMarca = (AutoCompleteTextView) findViewById(R.id.autoCompleteMarca);
+
+
+        String[] marcas = getResources().getStringArray(R.array.marca_array);
+        ArrayAdapter<String> marcaAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, marcas);
+        acMarca.setAdapter(marcaAdapter);
+
+
+
 
 
         ArrayAdapter<CharSequence> adapterInventario =  ArrayAdapter.createFromResource(ClienteActivity.this, R.array.inventario_array, android.R.layout.simple_spinner_item);
@@ -130,7 +141,8 @@ public class ClienteActivity extends AppCompatActivity {
                 clienteData.setTime(etTime.getText().toString());
                 clienteData.setDireccion(etDireccion.getText().toString());
                 clienteData.setMotivoInventario(spinnerInventario.getSelectedItem().toString());
-                clienteData.setVehiculoMarca(etVehiculoMarca.getText().toString());
+                //*
+                clienteData.setVehiculoMarca(acMarca.getText().toString());
                 clienteData.setVehiculoTipo(etVehiculoTipo.getText().toString());
                 clienteData.setVehiculoModelo(etVehiculoModelo.getText().toString());
                 clienteData.setVehiculoColor(etVehiculoColor.getText().toString());
